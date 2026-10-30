@@ -1,0 +1,24 @@
+{
+  "version": "26.21",
+  "generatedAt": "2026-10-30T02:20:25.386Z",
+  "championCount": 173,
+  "itemCount": 199,
+  "augmentCount": 30,
+  "championsWithData": 173,
+  "augmentLinks": 1730,
+  "sources": [
+    {
+      "name": "DeepARAM 大乱斗统计（海克斯/出装胜率）",
+      "url": "https://www.deeparam.com"
+    },
+    {
+      "name": "腾讯英雄联盟官方英雄与装备数据",
+      "url": "https://game.gtimg.cn/images/lol/act/img/js/"
+    },
+    {
+      "name": "CommunityDragon 海克斯数据",
+      "url": "https://communitydragon.org"
+    }
+  ],
+  "disclaimer": "本工具为玩家自制，数据来自公开统计站点，仅供参考，与腾讯/Riot 无关。"
+}

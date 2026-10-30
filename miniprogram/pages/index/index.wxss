@@ -1,0 +1,89 @@
+.page {
+  min-height: 100vh;
+  background: #0b1020;
+}
+
+.loading,
+.fallback {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60rpx;
+  box-sizing: border-box;
+}
+
+.spinner {
+  width: 64rpx;
+  height: 64rpx;
+  border: 6rpx solid rgba(255, 255, 255, 0.12);
+  border-top-color: #3d8bfd;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  margin-top: 28rpx;
+  font-size: 28rpx;
+  color: #9aa8bd;
+}
+
+.fallback-icon {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: rgba(240, 138, 138, 0.15);
+  color: #f08a8a;
+  font-size: 52rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fallback-title {
+  margin-top: 32rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #eef2fb;
+}
+
+.fallback-desc {
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  color: #9aa8bd;
+  text-align: center;
+  word-break: break-all;
+}
+
+.fallback-tip {
+  margin-top: 32rpx;
+  font-size: 24rpx;
+  line-height: 1.9;
+  color: #6b7a93;
+  text-align: left;
+  background: #161f36;
+  border-radius: 16rpx;
+  padding: 24rpx 28rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.fallback-btn {
+  margin-top: 40rpx;
+  padding: 0 64rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 999rpx;
+  background: #3d8bfd;
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: 600;
+}

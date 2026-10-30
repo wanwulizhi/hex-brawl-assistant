@@ -1,0 +1,27 @@
+<!-- 海斗大师：小程序壳，内嵌 H5 -->
+<view class="page">
+  <web-view
+    wx:if="{{ready}}"
+    src="{{url}}"
+    bindload="onWebLoad"
+    binderror="onWebError"
+  />
+
+  <view wx:elif="{{errorMsg}}" class="fallback">
+    <view class="fallback-icon">!</view>
+    <view class="fallback-title">页面加载失败</view>
+    <view class="fallback-desc">{{errorMsg}}</view>
+    <view class="fallback-tip">
+      <view>请检查：</view>
+      <view>1. 业务域名是否已在小程序后台配置</view>
+      <view>2. 域名是否为 HTTPS 且已备案</view>
+      <view>3. 校验文件是否已放到站点根目录</view>
+    </view>
+    <button class="fallback-btn" bindtap="reload">重新加载</button>
+  </view>
+
+  <view wx:else class="loading">
+    <view class="spinner" />
+    <view class="loading-text">正在加载…</view>
+  </view>
+</view>

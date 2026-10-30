@@ -1,0 +1,83 @@
+:root {
+  --bg: #0b1020;
+  --bg-soft: #121a2f;
+  --panel: #161f36;
+  --panel-2: #1d2843;
+  --line: rgba(255, 255, 255, 0.08);
+  --text: #eef2fb;
+  --text-dim: #9aa8bd;
+  --text-faint: #6b7a93;
+  --accent: #3d8bfd;
+  --accent-2: #7c5cff;
+  --gold: #f0b429;
+  --prism: #c86bff;
+  --silver: #9aa8bd;
+  --good: #34d399;
+  --radius: 14px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+#app {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+button {
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+input {
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text);
+  border: none;
+  outline: none;
+  background: none;
+}
+
+img {
+  display: block;
+}
+
+/* 隐藏滚动条，但保留滚动能力 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.scroll-y {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 文本省略 */
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "hex-brawl-assistant",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "海斗大师 - 英雄联盟海克斯大乱斗出装与海克斯强化推荐助手",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "data:scrape": "node scripts/scrape-deeparam.mjs",
+    "data:build": "node scripts/build-data.mjs",
+    "data": "npm run data:scrape && npm run data:build"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.0.7"
+  }
+}
