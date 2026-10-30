@@ -1,11 +1,48 @@
 {
   "version": "26.21",
-  "generatedAt": "2026-10-30T02:20:25.386Z",
+  "generatedAt": "2026-10-30T04:12:18.452Z",
   "championCount": 173,
   "itemCount": 199,
   "augmentCount": 30,
   "championsWithData": 173,
   "augmentLinks": 1730,
+  "groups": [
+    {
+      "key": "hang",
+      "label": "夯",
+      "sub": "版本之子",
+      "min": 54,
+      "count": 13
+    },
+    {
+      "key": "meng",
+      "label": "猛",
+      "sub": "强势上分",
+      "min": 52,
+      "count": 12
+    },
+    {
+      "key": "zhong",
+      "label": "中",
+      "sub": "中规中矩",
+      "min": 50,
+      "count": 48
+    },
+    {
+      "key": "pianla",
+      "label": "偏拉",
+      "sub": "略微吃力",
+      "min": 48,
+      "count": 51
+    },
+    {
+      "key": "la",
+      "label": "拉",
+      "sub": "谨慎选择",
+      "min": null,
+      "count": 49
+    }
+  ],
   "sources": [
     {
       "name": "DeepARAM 大乱斗统计（海克斯/出装胜率）",

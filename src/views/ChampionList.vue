@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { championIcon, ROLE_LABEL } from '../composables/useData'
+import { championIcon, groupMeta, ROLE_LABEL, WIN_GROUPS } from '../composables/useData'
 
 const props = defineProps({
   champions: { type: Array, required: true },
@@ -12,6 +12,7 @@ const emit = defineEmits(['select'])
 
 const keyword = ref('')
 const activeRole = ref('all')
+const collapsed = ref(new Set())
 
 const ROLES = [
   { key: 'all', label: '全部' },
@@ -23,6 +24,7 @@ const ROLES = [
   { key: 'support', label: '辅助' },
 ]
 
+/** 搜索 + 定位筛选后的英雄 */
 const filtered = computed(() => {
   const kw = keyword.value.trim().toLowerCase()
   return props.champions.filter((c) => {
@@ -37,7 +39,38 @@ const filtered = computed(() => {
   })
 })
 
-/** 每个英雄的首推海克斯（用于列表页展示强度标记） */
+/** 按强度分组，组内按胜率降序 */
+const grouped = computed(() => {
+  const buckets = new Map(WIN_GROUPS.map((g) => [g.key, []]))
+  for (const c of filtered.value) {
+    const g = groupMeta(c.group, c.winRate)
+    if (!buckets.has(g.key)) buckets.set(g.key, [])
+    buckets.get(g.key).push(c)
+  }
+  return WIN_GROUPS.map((g) => {
+    const list = (buckets.get(g.key) || []).sort(
+      (a, b) => (b.winRate ?? -1) - (a.winRate ?? -1),
+    )
+    return { ...g, list }
+  }).filter((g) => g.list.length > 0)
+})
+
+const totalShown = computed(() => grouped.value.reduce((n, g) => n + g.list.length, 0))
+
+function toggle(key) {
+  const next = new Set(collapsed.value)
+  if (next.has(key)) next.delete(key)
+  else next.add(key)
+  collapsed.value = next
+}
+
+function isCollapsed(key) {
+  // 搜索时强制展开，方便看结果
+  if (keyword.value.trim()) return false
+  return collapsed.value.has(key)
+}
+
+/** 每个英雄的首推海克斯 */
 function topAugment(championId) {
   const b = props.buildMap.get(championId)
   return b && b.augments.length ? b.augments[0] : null
@@ -45,6 +78,10 @@ function topAugment(championId) {
 
 function roleText(roles) {
   return roles.map((r) => ROLE_LABEL[r]).filter(Boolean).join(' / ')
+}
+
+function fmtRate(v) {
+  return v == null ? '—' : `${v.toFixed(1)}%`
 }
 </script>
 
@@ -59,13 +96,18 @@ function roleText(roles) {
         </div>
       </div>
       <p v-if="meta" class="meta-line">
-        版本 {{ meta.version }} · {{ meta.championCount }} 位英雄 · {{ meta.augmentCount }} 个海克斯
+        版本 {{ meta.version }} · {{ meta.championCount }} 位英雄 · 按胜率从夯到拉
       </p>
     </header>
 
     <div class="search-bar">
       <span class="search-icon">🔍</span>
-      <input v-model="keyword" type="search" placeholder="搜索英雄名 / 称号 / 拼音" enterkeyhint="search" />
+      <input
+        v-model="keyword"
+        type="search"
+        placeholder="搜索英雄名 / 称号 / 拼音"
+        enterkeyhint="search"
+      />
       <button v-if="keyword" class="clear" @click="keyword = ''">✕</button>
     </div>
 
@@ -82,32 +124,46 @@ function roleText(roles) {
     </div>
 
     <p class="result-count">
-      共 <b>{{ filtered.length }}</b> 位英雄
+      共 <b>{{ totalShown }}</b> 位英雄
+      <span v-if="!keyword.trim()" class="hint">· 点击分组标题可折叠</span>
     </p>
 
-    <div class="champ-grid">
-      <button
-        v-for="c in filtered"
-        :key="c.id"
-        class="champ-card"
-        @click="emit('select', c.id)"
-      >
-        <div class="avatar-wrap">
-          <img :src="championIcon(c.alias)" :alt="c.name" loading="lazy" class="avatar" />
-          <span v-if="topAugment(c.id)" class="hot-dot" />
-        </div>
-        <div class="champ-info">
-          <p class="champ-name ellipsis">{{ c.name }}</p>
-          <p class="champ-role ellipsis">{{ roleText(c.roles) }}</p>
-        </div>
+    <!-- 按强度分组 -->
+    <section v-for="g in grouped" :key="g.key" class="group">
+      <button class="group-head" @click="toggle(g.key)">
+        <span class="group-badge" :style="{ background: g.color }">{{ g.label }}</span>
+        <span class="group-text">
+          <span class="group-sub">{{ g.sub }}</span>
+          <span class="group-range">{{ g.list.length }} 位</span>
+        </span>
+        <span class="group-chev" :class="{ open: !isCollapsed(g.key) }">⌄</span>
       </button>
-    </div>
 
-    <p v-if="!filtered.length" class="empty">没有找到匹配的英雄</p>
+      <div v-show="!isCollapsed(g.key)" class="champ-grid">
+        <button
+          v-for="c in g.list"
+          :key="c.id"
+          class="champ-card"
+          @click="emit('select', c.id)"
+        >
+          <div class="avatar-wrap">
+            <img :src="championIcon(c.alias)" :alt="c.name" loading="lazy" class="avatar" />
+            <span class="rate-tag" :style="{ background: g.color }">{{ fmtRate(c.winRate) }}</span>
+            <span v-if="topAugment(c.id)" class="hot-dot" />
+          </div>
+          <div class="champ-info">
+            <p class="champ-name ellipsis">{{ c.name }}</p>
+            <p class="champ-role ellipsis">{{ roleText(c.roles) }}</p>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <p v-if="!grouped.length" class="empty">没有找到匹配的英雄</p>
 
     <footer class="foot">
       <p v-if="meta">数据更新于 {{ new Date(meta.generatedAt).toLocaleDateString('zh-CN') }}</p>
-      <p class="disclaimer">数据来自公开统计站点，仅供参考</p>
+      <p class="disclaimer">胜率来自公开统计站点，仅供参考</p>
     </footer>
   </div>
 </template>
@@ -219,13 +275,73 @@ function roleText(roles) {
 }
 
 .result-count {
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   font-size: 12px;
   color: var(--text-faint);
 }
 
 .result-count b {
   color: var(--text-dim);
+}
+
+.hint {
+  opacity: 0.7;
+}
+
+/* ---- 分组 ---- */
+.group {
+  margin-bottom: 22px;
+}
+
+.group-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 2px 10px;
+  text-align: left;
+}
+
+.group-badge {
+  flex: 0 0 auto;
+  min-width: 44px;
+  padding: 5px 10px;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #0b1020;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.group-text {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.group-sub {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.group-range {
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.group-chev {
+  font-size: 15px;
+  color: var(--text-faint);
+  transition: transform 0.18s;
+  line-height: 1;
+}
+
+.group-chev.open {
+  transform: rotate(180deg);
 }
 
 .champ-grid {
@@ -258,6 +374,18 @@ function roleText(roles) {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.rate-tag {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #0b1020;
+  border-top-right-radius: 8px;
+  letter-spacing: 0.2px;
 }
 
 .hot-dot {

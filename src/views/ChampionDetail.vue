@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-import { championIcon, ROLE_LABEL, RARITY_META } from '../composables/useData'
+import { championIcon, groupMeta, ROLE_LABEL, RARITY_META } from '../composables/useData'
 
 const props = defineProps({
   champion: { type: Object, required: true },
@@ -15,6 +15,9 @@ const coreItems = computed(() =>
   (props.build?.core || []).map((id) => props.itemMap.get(id)).filter(Boolean),
 )
 const buildList = computed(() => props.build?.builds || [])
+
+/** 该英雄的强度分组 */
+const group = computed(() => groupMeta(props.champion.group, props.champion.winRate))
 
 const roleText = computed(() =>
   props.champion.roles.map((r) => ROLE_LABEL[r]).filter(Boolean).join(' / '),
@@ -73,6 +76,27 @@ function winTone(v) {
         <p class="hero-title">{{ champion.title }}</p>
         <div class="role-chips">
           <span v-for="r in champion.roles" :key="r" class="chip">{{ ROLE_LABEL[r] || r }}</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 强度与胜率 -->
+    <section class="perf-card">
+      <div class="perf-badge" :style="{ background: group.color }">{{ group.label }}</div>
+      <div class="perf-main">
+        <div class="perf-item">
+          <span class="perf-value">{{ champion.winRate != null ? champion.winRate.toFixed(1) + '%' : '—' }}</span>
+          <span class="perf-label">大乱斗胜率</span>
+        </div>
+        <div class="perf-item">
+          <span class="perf-value">
+            {{ champion.winRank != null ? '#' + champion.winRank : '—' }}
+          </span>
+          <span class="perf-label">胜率排名</span>
+        </div>
+        <div class="perf-item">
+          <span class="perf-value">{{ champion.pickRate != null ? champion.pickRate.toFixed(1) + '%' : '—' }}</span>
+          <span class="perf-label">选取率</span>
         </div>
       </div>
     </section>
@@ -317,6 +341,57 @@ function winTone(v) {
 .stat-value {
   font-size: 11px;
   color: var(--text-dim);
+}
+
+/* ---- 强度与胜率 ---- */
+.perf-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 16px 16px;
+  padding: 12px 14px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+}
+
+.perf-badge {
+  flex: 0 0 auto;
+  min-width: 46px;
+  padding: 7px 11px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0b1020;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.perf-main {
+  display: flex;
+  gap: 18px;
+  flex: 1;
+  min-width: 0;
+}
+
+.perf-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.perf-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.perf-label {
+  font-size: 10px;
+  color: var(--text-faint);
+  white-space: nowrap;
 }
 
 .block {

@@ -18,6 +18,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { ZH_BY_EN } from '../data/augment-zh.mjs'
+import { groupOf, WIN_GROUPS } from '../data/win-groups.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
@@ -205,6 +206,27 @@ function main() {
     })
   }
 
+  // ---------- 英雄胜率与分组 ----------
+  // deep.champions[alias].performance 来自详情页 Performance 段
+  for (const champ of champions) {
+    const d = deep.champions[champ.alias]
+    const perf = d?.performance
+    champ.winRate = perf?.winRate ?? null
+    champ.winRank = perf?.winRank ?? null
+    champ.pickRate = perf?.pickRate ?? null
+    champ.tier = d?.tier ?? null
+    const g = groupOf(champ.winRate)
+    champ.group = g.key
+  }
+
+  // 按胜率从高到低排序（「夯」在前），无数据者置底
+  champions.sort((a, b) => {
+    if (a.winRate == null && b.winRate == null) return a.id - b.id
+    if (a.winRate == null) return 1
+    if (b.winRate == null) return -1
+    return b.winRate - a.winRate || a.id - b.id
+  })
+
   // ---------- 输出 ----------
   fs.mkdirSync(OUT, { recursive: true })
 
@@ -220,6 +242,10 @@ function main() {
     augmentCount: augments.length,
     championsWithData: builds.length,
     augmentLinks: totalAugmentLinks,
+    groups: WIN_GROUPS.map((g) => {
+      const count = champions.filter((c) => c.group === g.key).length
+      return { key: g.key, label: g.label, sub: g.sub, min: g.min, count }
+    }),
     sources: [
       { name: 'DeepARAM 大乱斗统计（海克斯/出装胜率）', url: 'https://www.deeparam.com' },
       { name: '腾讯英雄联盟官方英雄与装备数据', url: 'https://game.gtimg.cn/images/lol/act/img/js/' },

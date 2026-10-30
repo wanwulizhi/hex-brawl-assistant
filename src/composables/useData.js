@@ -46,3 +46,28 @@ export const RARITY_META = {
   黄金: { label: '黄金', color: '#f0b429' },
   白银: { label: '白银', color: '#9aa8bd' },
 }
+
+/**
+ * 英雄强度分组（按大乱斗胜率，从「夯」到「拉」）
+ *
+ * 与 scripts/build-data.mjs 共用同一份口径（data/win-groups.mjs）。
+ * 前端再算一次，兼容分组字段缺失的旧数据。
+ */
+export const WIN_GROUPS = [
+  { key: 'hang', label: '夯', sub: '版本之子', min: 54, color: '#ff7a45' },
+  { key: 'meng', label: '猛', sub: '强势上分', min: 52, color: '#f0b429' },
+  { key: 'zhong', label: '中', sub: '中规中矩', min: 50, color: '#34d399' },
+  { key: 'pianla', label: '偏拉', sub: '略微吃力', min: 48, color: '#8ecfff' },
+  { key: 'la', label: '拉', sub: '谨慎选择', min: -Infinity, color: '#9aa8bd' },
+]
+
+const GROUP_BY_KEY = new Map(WIN_GROUPS.map((g) => [g.key, g]))
+
+export function groupOf(winRate) {
+  if (winRate == null) return WIN_GROUPS[WIN_GROUPS.length - 1]
+  return WIN_GROUPS.find((g) => winRate >= g.min) || WIN_GROUPS[WIN_GROUPS.length - 1]
+}
+
+export function groupMeta(key, winRate) {
+  return GROUP_BY_KEY.get(key) || groupOf(winRate)
+}

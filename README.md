@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>左：英雄列表（搜索 / 定位筛选）　右：英雄详情（海克斯推荐 + 高胜率出装）</sub>
+  <sub>左：英雄列表（按胜率分「夯→拉」五档）　右：英雄详情（胜率卡 + 海克斯 + 高胜率出装）</sub>
 </p>
 
 > **在线演示**：<https://wanwulizhi.github.io/hex-brawl-assistant/>
@@ -23,11 +23,25 @@
 
 ## 功能
 
-- **英雄列表**：173 位英雄，支持按中文名 / 称号 / 拼音搜索，按定位（法师、刺客、战士、坦克、射手、辅助）筛选。
+- **英雄强度分组**：主页按大乱斗胜率把 173 位英雄分成 **夯 / 猛 / 中 / 偏拉 / 拉** 五档，从强到弱依次展示，可折叠。
+- **英雄列表**：支持按中文名 / 称号 / 拼音搜索，按定位（法师、刺客、战士、坦克、射手、辅助）筛选；每张卡片直接标注胜率。
 - **海克斯强化推荐**：每位英雄按 DeepScore 排序展示海克斯，含**胜率**、**选取率**、**稀有度**（棱彩 / 黄金 / 白银）。
 - **高胜率出装**：展示核心装备路线与多套出装方案，每套都带胜率与选取率。
-- **移动端优先**：375–430px 宽度下优化，支持 iPhone 安全区（`env(safe-area-inset-*)`）。
+- **英雄数据卡**：详情页顶部展示该英雄的胜率、全服排名、选取率与强度档位。
+- **移动端优先**：320–430px 宽度下优化，支持 iPhone 安全区（`env(safe-area-inset-*)`）。
 - **双端发布**：同一份 H5 产物既能部署到 GitHub Pages，也能被微信小程序 `web-view` 直接引用。
+
+### 强度分组口径
+
+| 档位 | 含义 | 胜率区间 |
+| --- | --- | --- |
+| 夯 | 版本之子 | ≥ 54% |
+| 猛 | 强势上分 | 52% – 54% |
+| 中 | 中规中矩 | 50% – 52% |
+| 偏拉 | 略微吃力 | 48% – 50% |
+| 拉 | 谨慎选择 | < 48% |
+
+阈值定义在 `data/win-groups.mjs`，前端与数据管道共用同一份，版本更新后改一处即可。
 
 ## 快速开始
 
@@ -52,23 +66,24 @@ npm run preview
 ├── index.html                  # H5 入口
 ├── vite.config.js              # Vite 配置（base: './'，便于子目录部署）
 ├── public/data/                # 构建产物：静态数据（随 dist 一起发布）
-│   ├── meta.json               # 版本与数据统计
-│   ├── champions.json          # 英雄索引
+│   ├── meta.json               # 版本与数据统计（含各分组人数）
+│   ├── champions.json          # 英雄索引（含胜率/排名/分组，已按胜率降序）
 │   ├── items.json              # 装备字典
 │   ├── augments.json           # 海克斯字典
 │   └── builds.json             # 英雄 → 海克斯 + 出装
 ├── src/
 │   ├── App.vue                 # 根组件与路由（列表 / 详情）
 │   ├── views/
-│   │   ├── ChampionList.vue    # 英雄列表页
-│   │   └── ChampionDetail.vue  # 英雄详情页（海克斯 + 出装）
-│   ├── composables/useData.js  # 数据加载、图标地址、常量
+│   │   ├── ChampionList.vue    # 主页：按「夯→拉」分组展示
+│   │   └── ChampionDetail.vue  # 英雄详情页（胜率卡 + 海克斯 + 出装）
+│   ├── composables/useData.js  # 数据加载、图标地址、分组逻辑
 │   └── styles/main.css         # 全局样式与设计变量
 ├── scripts/
-│   ├── scrape-deeparam.mjs     # 抓取大乱斗统计数据
+│   ├── scrape-deeparam.mjs     # 抓取大乱斗统计（海克斯/出装/英雄胜率）
 │   └── build-data.mjs          # 合并数据、生成 public/data
 ├── data/
 │   ├── augment-zh.mjs          # 海克斯英文名 → 中文名对照表
+│   ├── win-groups.mjs          # 强度分组阈值（夯/猛/中/偏拉/拉）
 │   └── raw/                    # 原始数据快照
 ├── miniprogram/                # 微信小程序壳（web-view 内嵌 H5）
 └── .github/workflows/deploy.yml # 自动部署到 GitHub Pages
@@ -78,7 +93,7 @@ npm run preview
 
 | 数据 | 来源 | 说明 |
 | --- | --- | --- |
-| 海克斯 / 出装胜率 | [DeepARAM](https://www.deeparam.com) | 大乱斗（ARAM: Mayhem）实测统计，含胜率、选取率、DeepScore |
+| 海克斯 / 出装 / 英雄胜率 | [DeepARAM](https://www.deeparam.com) | 大乱斗（ARAM: Mayhem）实测统计，含胜率、排名、选取率、DeepScore |
 | 英雄 / 装备基础数据 | [腾讯英雄联盟官方 CDN](https://game.gtimg.cn/images/lol/act/img/js/) | 中文名、定位、装备属性与描述、图标 |
 | 海克斯中英对照 | [CommunityDragon](https://communitydragon.org) + 人工校对 | `data/augment-zh.mjs` |
 

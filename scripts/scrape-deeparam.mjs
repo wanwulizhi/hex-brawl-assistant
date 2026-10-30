@@ -131,10 +131,50 @@ function parseChampionPage(html) {
   return result
 }
 
+/**
+ * 解析英雄整体表现（Performance 段）
+ * 结构：Win rate 51.8% # 26 of 173  Pick rate 5.6% # 81 of 173 ...
+ */
+function parsePerformance(html) {
+  const i = html.indexOf('id="performance"')
+  if (i < 0) return null
+  const seg = html.slice(i, i + 900).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ')
+
+  const win = seg.match(/Win rate\s+([\d.]+)%\s*#\s*(\d+)\s*of\s*(\d+)/)
+  const pick = seg.match(/Pick rate\s+([\d.]+)%/)
+  if (!win) return null
+
+  return {
+    winRate: parseFloat(win[1]),
+    winRank: Number(win[2]),
+    rankTotal: Number(win[3]),
+    pickRate: pick ? parseFloat(pick[1]) : null,
+  }
+}
+
+/** 解析英雄列表页的评级徽标（S/A/B/C/D） */
+function parseTierMap(html) {
+  const map = {}
+  const re = /href="\/champions\/([^"]+)"><img[^>]*\/><span class="champ-index-name">[^<]*<\/span><span class="champ-index-tier" data-tier="([SABCD])"/g
+  let m
+  while ((m = re.exec(html))) map[m[1]] = m[2]
+  return map
+}
+
 async function main() {
   const heroFile = path.join(RAW, 'hero_list.js')
   const heroText = fs.readFileSync(heroFile, 'utf8').replace(/^\uFEFF/, '')
   const heroes = JSON.parse(heroText.slice(heroText.indexOf('{'), heroText.lastIndexOf('}') + 1)).hero
+
+  // 先抓英雄列表页，拿到官方评级（S/A/B/C/D）
+  let tierMap = {}
+  try {
+    const listHtml = await fetchText(`${BASE}/champions`)
+    tierMap = parseTierMap(listHtml)
+    console.log(`英雄列表页评级：${Object.keys(tierMap).length} 个`)
+  } catch (e) {
+    console.log(`列表页抓取失败（不影响主流程）：${e.message}`)
+  }
 
   const out = {}
   const fail = []
@@ -148,10 +188,13 @@ async function main() {
       try {
         const html = await fetchText(`${BASE}/champions/${alias}`)
         const parsed = parseChampionPage(html)
+        const perf = parsePerformance(html)
+        if (perf) parsed.performance = perf
+        if (tierMap[alias]) parsed.tier = tierMap[alias]
         out[alias] = parsed
         done++
         process.stdout.write(
-          `[${done}/${heroes.length}] ${alias}: aug=${parsed.augments.length} build=${parsed.builds.length}\n`,
+          `[${done}/${heroes.length}] ${alias}: aug=${parsed.augments.length} build=${parsed.builds.length} wr=${perf ? perf.winRate : '-'}\n`,
         )
       } catch (e) {
         fail.push({ alias, error: String(e.message || e) })
