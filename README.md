@@ -7,6 +7,18 @@
   <b>173 位英雄</b> · <b>1730 条英雄×海克斯胜率</b> · <b>1038 套出装</b> · 纯静态、无后端
 </p>
 
+<p align="center">
+  <img src="./docs/screenshot-list.png" width="320" alt="英雄列表" />
+  &nbsp;&nbsp;
+  <img src="./docs/screenshot-detail.png" width="320" alt="英雄详情：海克斯与出装" />
+</p>
+
+<p align="center">
+  <sub>左：英雄列表（搜索 / 定位筛选）　右：英雄详情（海克斯推荐 + 高胜率出装）</sub>
+</p>
+
+> **在线演示**：<https://wanwulizhi.github.io/hex-brawl-assistant/>
+
 ---
 
 ## 功能
