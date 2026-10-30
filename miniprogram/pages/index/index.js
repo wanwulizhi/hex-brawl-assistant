@@ -28,7 +28,6 @@ Page({
 
     this.setData({ url, ready: true, errorMsg: '' })
   },
-
   reload() {
     this.setData({ ready: false, errorMsg: '' })
     setTimeout(() => this.load(), 100)

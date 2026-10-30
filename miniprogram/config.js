@@ -1,15 +1,16 @@
 /**
  * 小程序配置
  *
- * H5_BASE_URL 必须改成你的线上 H5 地址。
- * 微信要求：
- *   1. 该域名已在小程序后台「开发管理 → 服务器域名」里配置为业务域名；
- *   2. 域名必须是 HTTPS，且已备案；
- *   3. 需要在「开发管理 → 开发设置」下载校验文件放到站点根目录。
+ * H5_BASE_URL 指向线上 H5 地址。
  *
- * 本地调试时，在微信开发者工具里勾选「不校验合法域名」即可用 http 地址。
+ * 当前默认值指向 GitHub Pages 演示站，可直接在「不校验合法域名」模式下预览。
+ *
+ * 正式发布前必须注意：
+ *   1. 微信要求 web-view 的业务域名必须 HTTPS 且**已备案**；
+ *   2. GitHub Pages 的 *.github.io 无法备案，正式上线请换用自有已备案域名
+ *      （把 dist/ 部署到该域名下即可，无需改代码）；
+ *   3. 在「开发管理 → 开发设置」下载校验文件，放到 H5 站点根目录（public/ 下）。
  */
 module.exports = {
-  // 例：'https://your-name.github.io/hex-brawl-assistant/'
-  H5_BASE_URL: 'https://example.com/hex-brawl-assistant/',
+  H5_BASE_URL: 'https://wanwulizhi.github.io/hex-brawl-assistant/',
 }
