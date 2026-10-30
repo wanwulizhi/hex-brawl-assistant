@@ -31,11 +31,24 @@ const statBars = computed(() => [
   { label: '难度', value: props.champion.difficulty },
 ])
 
-/** 按稀有度分组统计 */
-const raritySummary = computed(() => {
-  const m = { 棱彩: 0, 黄金: 0, 白银: 0 }
-  for (const a of augments.value) if (m[a.rarity] != null) m[a.rarity]++
-  return m
+/** 稀有度展示顺序：棱彩 → 黄金 → 白银 */
+const RARITY_ORDER = ['棱彩', '黄金', '白银']
+
+/**
+ * 按稀有度分组后的海克斯列表
+ * 组内仍按 DeepScore 降序（DS 已跨稀有度校准，可直接比较强度）
+ */
+const augmentGroups = computed(() => {
+  const buckets = new Map(RARITY_ORDER.map((r) => [r, []]))
+  for (const a of augments.value) {
+    const key = buckets.has(a.rarity) ? a.rarity : '白银'
+    buckets.get(key).push(a)
+  }
+  return RARITY_ORDER.map((r) => ({
+    rarity: r,
+    meta: RARITY_META[r],
+    list: buckets.get(r).sort((x, y) => (y.score ?? 0) - (x.score ?? 0)),
+  })).filter((g) => g.list.length > 0)
 })
 
 function itemName(id) {
@@ -111,48 +124,51 @@ function winTone(v) {
       </div>
     </section>
 
-    <!-- 海克斯推荐 -->
+    <!-- 海克斯推荐（按稀有度分组） -->
     <section class="block">
       <div class="block-head">
         <h2>海克斯强化推荐</h2>
-        <span class="block-note">按 DeepScore 排序</span>
+        <span class="block-note">按稀有度分组 · 组内按 DeepScore</span>
       </div>
 
-      <div class="rarity-legend">
-        <span v-for="(v, k) in raritySummary" :key="k" class="legend-item">
-          <i class="dot" :style="{ background: RARITY_META[k].color }" />
-          {{ k }} {{ v }}
-        </span>
+      <div v-if="augments.length" class="rarity-groups">
+        <div v-for="g in augmentGroups" :key="g.rarity" class="rarity-group">
+          <div class="rarity-head">
+            <i class="rarity-dot" :style="{ background: g.meta.color }" />
+            <span class="rarity-name" :style="{ color: g.meta.color }">{{ g.rarity }}</span>
+            <span class="rarity-count">{{ g.list.length }} 个</span>
+          </div>
+
+          <ul class="aug-list">
+            <li v-for="(a, i) in g.list" :key="a.name" class="aug-item">
+              <span class="aug-rank" :class="{ top: i === 0 }">{{ i + 1 }}</span>
+
+              <div class="aug-main">
+                <div class="aug-title-row">
+                  <span class="aug-name">{{ a.name }}</span>
+                </div>
+                <p class="aug-en">{{ a.nameEn }}</p>
+                <div class="aug-metrics">
+                  <span class="metric">
+                    胜率
+                    <b :class="winTone(a.winRate)">{{
+                      a.winRate != null ? a.winRate + '%' : '—'
+                    }}</b>
+                  </span>
+                  <span class="metric">
+                    选取 <b>{{ a.pickRate != null ? a.pickRate + '%' : '—' }}</b>
+                  </span>
+                </div>
+              </div>
+
+              <div class="aug-score">
+                <span class="score-num">{{ a.score ?? '—' }}</span>
+                <span class="score-label">DS</span>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-
-      <ul v-if="augments.length" class="aug-list">
-        <li v-for="(a, i) in augments" :key="a.name" class="aug-item">
-          <span class="aug-rank" :class="i === 0 ? 'top' : ''">{{ i + 1 }}</span>
-
-          <div class="aug-main">
-            <div class="aug-title-row">
-              <span class="aug-name">{{ a.name }}</span>
-              <span class="aug-rarity" :style="{ color: RARITY_META[a.rarity]?.color }">
-                {{ a.rarity }}
-              </span>
-            </div>
-            <p class="aug-en">{{ a.nameEn }}</p>
-            <div class="aug-metrics">
-              <span class="metric">
-                胜率 <b :class="winTone(a.winRate)">{{ a.winRate != null ? a.winRate + '%' : '—' }}</b>
-              </span>
-              <span class="metric">
-                选取 <b>{{ a.pickRate != null ? a.pickRate + '%' : '—' }}</b>
-              </span>
-            </div>
-          </div>
-
-          <div class="aug-score">
-            <span class="score-num">{{ a.score ?? '—' }}</span>
-            <span class="score-label">DS</span>
-          </div>
-        </li>
-      </ul>
       <p v-else class="empty">暂无该英雄的海克斯数据</p>
     </section>
 
@@ -416,24 +432,37 @@ function winTone(v) {
   color: var(--text-faint);
 }
 
-.rarity-legend {
+/* ---- 按稀有度分组 ---- */
+.rarity-groups {
   display: flex;
-  gap: 14px;
-  margin-bottom: 10px;
-  font-size: 11px;
-  color: var(--text-faint);
+  flex-direction: column;
+  gap: 18px;
 }
 
-.legend-item {
+.rarity-head {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 7px;
+  margin-bottom: 9px;
+  padding-left: 2px;
 }
 
-.dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
+.rarity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex: 0 0 auto;
+}
+
+.rarity-name {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.rarity-count {
+  font-size: 11px;
+  color: var(--text-faint);
 }
 
 .aug-list {
@@ -491,11 +520,6 @@ function winTone(v) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.aug-rarity {
-  font-size: 10px;
-  flex: 0 0 auto;
 }
 
 .aug-en {
