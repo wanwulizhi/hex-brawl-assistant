@@ -1,9 +1,10 @@
 {
   "version": "26.21",
-  "generatedAt": "2026-10-30T04:12:18.452Z",
+  "generatedAt": "2026-11-02T07:12:08.883Z",
   "championCount": 173,
   "itemCount": 199,
-  "augmentCount": 30,
+  "augmentCount": 214,
+  "augmentNameConfirmed": 198,
   "championsWithData": 173,
   "augmentLinks": 1730,
   "groups": [
@@ -47,6 +48,10 @@
     {
       "name": "DeepARAM 大乱斗统计（海克斯/出装胜率）",
       "url": "https://www.deeparam.com"
+    },
+    {
+      "name": "Hexdata 海克斯中文名与胜率",
+      "url": "https://hexdata.com.cn"
     },
     {
       "name": "腾讯英雄联盟官方英雄与装备数据",

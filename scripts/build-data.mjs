@@ -118,32 +118,29 @@ function main() {
   for (const i of items) if (!aramByName.has(i.name)) aramByName.set(i.name, i.id)
 
   // ---------- 海克斯字典 ----------
-  // 以 deeparam 实际出现的海克斯为准，用 dict / cdragon 补中文名与图标
+  // 全量 214 个，来自 deeparam 榜单（胜率/DS/稀有度）+ hexdata（中文名）
+  const augmentsFinal = readJson(path.join(RAW, 'augments-final.json'))
+  const augByEn = new Map(augmentsFinal.map((a) => [a.nameEn, a]))
+
+  // 旧数据里每个英雄的 10 条推荐仍然有效，用它建立 英雄→海克斯 的关联
   const dictByName = new Map(augmentDict.augments.map((a) => [a.name, a]))
   const cdByNameEn = new Map(cdragon.augments.filter((a) => a.nameEn).map((a) => [a.nameEn, a]))
 
-  const augMeta = new Map() // 中文名 -> { name, nameEn, rarity, icon, globalWinRate }
+  const augMeta = new Map() // 中文名 -> 元数据
   let fallbackEn = 0
 
-  for (const champ of Object.values(deep.champions)) {
-    for (const a of champ.augments) {
-      const zh = ZH_BY_EN[a.name]
-      const name = zh || a.name
-      if (!zh) fallbackEn++
-      if (augMeta.has(name)) continue
-
-      const cd = cdByNameEn.get(a.name)
-      const dict = dictByName.get(name)
-      const rarity = RARITY_ZH[a.rarity] || RARITY_ZH[cd?.rarity] || '白银'
-      const icon = dict?.icon || (cd?.icon ? '' : '')
-      augMeta.set(name, {
-        name,
-        nameEn: a.name,
-        rarity,
-        icon,
-        globalWinRate: dict?.winRate ? parseFloat(dict.winRate) : null,
-      })
-    }
+  for (const a of augmentsFinal) {
+    const icon = dictByName.get(a.name)?.icon || ''
+    if (!a.nameConfirmed) fallbackEn++
+    augMeta.set(a.name, {
+      name: a.name,
+      nameEn: a.nameEn,
+      rarity: a.rarity,
+      icon,
+      globalWinRate: a.winRate,
+      deepScore: a.deepScore,
+      pickRate: a.pickRate,
+    })
   }
 
   // ---------- 组装英雄推荐 ----------
@@ -159,13 +156,15 @@ function main() {
     // 海克斯：按 DeepScore 排序（站点已排好，这里再兜底一次）
     const augments = d.augments
       .map((a) => {
-        const zh = ZH_BY_EN[a.name] || a.name
-        const meta = augMeta.get(zh) || {}
+        // 用英文名到全量表里查中文名与稀有度
+        const full = augByEn.get(a.name)
+        const name = full ? full.name : a.name
+        const meta = augMeta.get(name) || {}
         return {
-          name: zh,
+          name,
           nameEn: a.name,
           slug: a.slug,
-          rarity: RARITY_ZH[a.rarity] || meta.rarity || '白银',
+          rarity: full?.rarity || RARITY_ZH[a.rarity] || meta.rarity || '白银',
           icon: meta.icon || '',
           winRate: a.winRate,
           pickRate: a.pickRate,
@@ -240,6 +239,7 @@ function main() {
     championCount: champions.length,
     itemCount: items.length,
     augmentCount: augments.length,
+    augmentNameConfirmed: augmentsFinal.filter((a) => a.nameConfirmed).length,
     championsWithData: builds.length,
     augmentLinks: totalAugmentLinks,
     groups: WIN_GROUPS.map((g) => {
@@ -248,6 +248,7 @@ function main() {
     }),
     sources: [
       { name: 'DeepARAM 大乱斗统计（海克斯/出装胜率）', url: 'https://www.deeparam.com' },
+      { name: 'Hexdata 海克斯中文名与胜率', url: 'https://hexdata.com.cn' },
       { name: '腾讯英雄联盟官方英雄与装备数据', url: 'https://game.gtimg.cn/images/lol/act/img/js/' },
       { name: 'CommunityDragon 海克斯数据', url: 'https://communitydragon.org' },
     ],
