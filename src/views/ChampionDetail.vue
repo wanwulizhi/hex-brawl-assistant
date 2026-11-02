@@ -1,10 +1,11 @@
 <script setup>
 import { computed } from 'vue'
-import { championIcon, groupMeta, ROLE_LABEL, RARITY_META } from '../composables/useData'
+import { championIcon, COMBO_TYPE, groupMeta, ROLE_LABEL, RARITY_META } from '../composables/useData'
 
 const props = defineProps({
   champion: { type: Object, required: true },
   build: { type: Object, default: null },
+  playstyles: { type: Array, default: () => [] },
   itemMap: { type: Map, required: true },
 })
 
@@ -15,6 +16,9 @@ const coreItems = computed(() =>
   (props.build?.core || []).map((id) => props.itemMap.get(id)).filter(Boolean),
 )
 const buildList = computed(() => props.build?.builds || [])
+
+/** 套路列表 */
+const combos = computed(() => props.playstyles || [])
 
 /** 该英雄的强度分组 */
 const group = computed(() => groupMeta(props.champion.group, props.champion.winRate))
@@ -121,6 +125,55 @@ function winTone(v) {
           <div class="bar-fill" :style="{ width: `${(s.value / 10) * 100}%` }" />
         </div>
         <span class="stat-value">{{ s.value }}</span>
+      </div>
+    </section>
+
+    <!-- 套路推荐 -->
+    <section v-if="combos.length" class="block">
+      <div class="block-head">
+        <h2>套路推荐</h2>
+        <span class="block-note">社区经验 · 非统计结论</span>
+      </div>
+
+      <div class="combo-list">
+        <article v-for="c in combos" :key="c.id" class="combo-card">
+          <div class="combo-top">
+            <span class="combo-type" :style="{ background: (COMBO_TYPE[c.type] || {}).color }">
+              {{ (COMBO_TYPE[c.type] || {}).label || c.type }}
+            </span>
+            <h3 class="combo-name">{{ c.name }}</h3>
+            <span class="combo-diff" :title="`上手难度 ${c.difficulty}/5`">
+              {{ '★'.repeat(c.difficulty) }}{{ '☆'.repeat(5 - c.difficulty) }}
+            </span>
+          </div>
+
+          <p class="combo-summary">{{ c.summary }}</p>
+
+          <div class="combo-augs">
+            <span class="combo-label">核心海克斯</span>
+            <div class="aug-chips">
+              <span v-for="a in c.coreAugments" :key="a" class="aug-chip core">{{ a }}</span>
+            </div>
+          </div>
+
+          <div v-if="c.optionalAugments.length" class="combo-augs">
+            <span class="combo-label">加分项</span>
+            <div class="aug-chips">
+              <span v-for="a in c.optionalAugments" :key="a" class="aug-chip">{{ a }}</span>
+            </div>
+          </div>
+
+          <div class="combo-cond">
+            <p class="cond good">
+              <span class="cond-icon">✓</span>
+              {{ c.whenToUse }}
+            </p>
+            <p class="cond bad">
+              <span class="cond-icon">✕</span>
+              {{ c.whenNotToUse }}
+            </p>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -408,6 +461,126 @@ function winTone(v) {
   font-size: 10px;
   color: var(--text-faint);
   white-space: nowrap;
+}
+
+/* ---- 套路推荐 ---- */
+.combo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.combo-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  padding: 13px 14px 14px;
+}
+
+.combo-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+
+.combo-type {
+  flex: 0 0 auto;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #0b1020;
+}
+
+.combo-name {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.combo-diff {
+  flex: 0 0 auto;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+.combo-summary {
+  margin: 0 0 10px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+.combo-augs {
+  margin-bottom: 8px;
+}
+
+.combo-label {
+  display: block;
+  font-size: 10px;
+  color: var(--text-faint);
+  margin-bottom: 5px;
+}
+
+.aug-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.aug-chip {
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  color: var(--text-dim);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+}
+
+.aug-chip.core {
+  color: var(--text);
+  border-color: rgba(124, 92, 255, 0.45);
+  background: rgba(124, 92, 255, 0.12);
+  font-weight: 600;
+}
+
+.combo-cond {
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px dashed var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cond {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.55;
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.cond-icon {
+  flex: 0 0 auto;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.cond.good {
+  color: #7fd4a8;
+}
+
+.cond.bad {
+  color: #d99a9a;
 }
 
 .block {

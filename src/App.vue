@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
-import { loadBuilds, loadChampions, loadItems, loadMeta } from './composables/useData'
+import { loadBuilds, loadChampions, loadItems, loadMeta, loadPlaystyles } from './composables/useData'
 import ChampionList from './views/ChampionList.vue'
 import ChampionDetail from './views/ChampionDetail.vue'
 
@@ -9,6 +9,7 @@ const error = ref('')
 const champions = ref([])
 const items = ref([])
 const builds = ref([])
+const playstyles = ref([])
 const meta = ref(null)
 
 const selectedId = ref(null)
@@ -16,6 +17,12 @@ const selectedId = ref(null)
 const buildMap = computed(() => {
   const m = new Map()
   for (const b of builds.value) m.set(b.championId, b)
+  return m
+})
+
+const playstyleMap = computed(() => {
+  const m = new Map()
+  for (const p of playstyles.value) m.set(p.championId, p)
   return m
 })
 
@@ -33,18 +40,24 @@ const selectedBuild = computed(() =>
   selectedId.value != null ? buildMap.value.get(selectedId.value) || null : null,
 )
 
+const selectedPlaystyles = computed(() =>
+  selectedId.value != null ? playstyleMap.value.get(selectedId.value)?.combos || [] : [],
+)
+
 async function boot() {
   try {
-    const [metaData, champData, itemData, buildData] = await Promise.all([
+    const [metaData, champData, itemData, buildData, psData] = await Promise.all([
       loadMeta(),
       loadChampions(),
       loadItems(),
       loadBuilds(),
+      loadPlaystyles(),
     ])
     meta.value = metaData
     champions.value = champData
     items.value = itemData
     builds.value = buildData
+    playstyles.value = psData
   } catch (e) {
     error.value = String(e.message || e)
   } finally {
@@ -82,6 +95,7 @@ onMounted(boot)
       v-else-if="selectedChampion"
       :champion="selectedChampion"
       :build="selectedBuild"
+      :playstyles="selectedPlaystyles"
       :item-map="itemMap"
       @back="closeChampion"
     />
