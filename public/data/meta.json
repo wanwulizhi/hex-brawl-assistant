@@ -1,12 +1,14 @@
 {
   "version": "26.21",
-  "generatedAt": "2026-11-02T07:12:08.883Z",
+  "generatedAt": "2026-11-02T08:59:04.572Z",
   "championCount": 173,
   "itemCount": 199,
   "augmentCount": 214,
   "augmentNameConfirmed": 198,
   "championsWithData": 173,
   "augmentLinks": 1730,
+  "playstyleChampions": 21,
+  "playstyleCount": 25,
   "groups": [
     {
       "key": "hang",

@@ -22,6 +22,7 @@ export const loadChampions = () => loadJson('champions.json')
 export const loadItems = () => loadJson('items.json')
 export const loadAugments = () => loadJson('augments.json')
 export const loadBuilds = () => loadJson('builds.json')
+export const loadPlaystyles = () => loadJson('playstyles.json')
 
 /** 装备/英雄/海克斯图标地址（腾讯官方 CDN，国内可直连） */
 export const itemIcon = (id) => `https://game.gtimg.cn/images/lol/act/img/item/${id}.png`
@@ -45,6 +46,13 @@ export const RARITY_META = {
   棱彩: { label: '棱彩', color: '#c86bff' },
   黄金: { label: '黄金', color: '#f0b429' },
   白银: { label: '白银', color: '#9aa8bd' },
+}
+
+/** 套路类型 */
+export const COMBO_TYPE = {
+  playstyle: { label: '定位流', color: '#7c5cff' },
+  mechanic: { label: '机制流', color: '#34d399' },
+  build: { label: '出装流', color: '#f0b429' },
 }
 
 /**

@@ -19,6 +19,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { ZH_BY_EN } from '../data/augment-zh.mjs'
 import { groupOf, WIN_GROUPS } from '../data/win-groups.mjs'
+import { PLAYSTYLES } from '../data/playstyles.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
@@ -233,6 +234,42 @@ function main() {
     (a, b) => (b.globalWinRate ?? 0) - (a.globalWinRate ?? 0),
   )
 
+  // ---------- 套路数据 ----------
+  // 把 playstyles.mjs 的英文别名映射到英雄 ID，并校验海克斯名存在
+  const champByAliasLower = new Map(champions.map((c) => [c.alias.toLowerCase(), c]))
+  const augNameSet = new Set(augments.map((a) => a.name))
+
+  const playstyles = []
+  const psWarnings = []
+
+  for (const entry of PLAYSTYLES) {
+    const champ = champByAliasLower.get(entry.championAlias.toLowerCase())
+    if (!champ) {
+      psWarnings.push(`英雄不存在: ${entry.championAlias}`)
+      continue
+    }
+    const combos = []
+    for (const c of entry.combos) {
+      // 校验海克斯名
+      for (const a of [...c.coreAugments, ...c.optionalAugments]) {
+        if (!augNameSet.has(a)) psWarnings.push(`${entry.championAlias} / ${c.name}: 海克斯「${a}」不存在`)
+      }
+      combos.push({
+        id: c.id,
+        name: c.name,
+        type: c.type,
+        summary: c.summary,
+        coreAugments: c.coreAugments,
+        optionalAugments: c.optionalAugments,
+        coreItems: c.coreItems || [],
+        whenToUse: c.whenToUse,
+        whenNotToUse: c.whenNotToUse,
+        difficulty: c.difficulty,
+      })
+    }
+    playstyles.push({ championId: champ.id, alias: champ.alias, name: champ.name, combos })
+  }
+
   const meta = {
     version: '26.21',
     generatedAt: new Date().toISOString(),
@@ -242,6 +279,8 @@ function main() {
     augmentNameConfirmed: augmentsFinal.filter((a) => a.nameConfirmed).length,
     championsWithData: builds.length,
     augmentLinks: totalAugmentLinks,
+    playstyleChampions: playstyles.length,
+    playstyleCount: playstyles.reduce((n, p) => n + p.combos.length, 0),
     groups: WIN_GROUPS.map((g) => {
       const count = champions.filter((c) => c.group === g.key).length
       return { key: g.key, label: g.label, sub: g.sub, min: g.min, count }
@@ -260,10 +299,16 @@ function main() {
   fs.writeFileSync(path.join(OUT, 'items.json'), JSON.stringify(items))
   fs.writeFileSync(path.join(OUT, 'augments.json'), JSON.stringify(augments))
   fs.writeFileSync(path.join(OUT, 'builds.json'), JSON.stringify(builds))
+  fs.writeFileSync(path.join(OUT, 'playstyles.json'), JSON.stringify(playstyles))
 
   console.log(
     `完成：${champions.length} 英雄 / ${items.length} 装备 / ${augments.length} 海克斯 / ${totalAugmentLinks} 条英雄海克斯推荐`,
   )
+  console.log(`套路：${playstyles.length} 位英雄 / ${meta.playstyleCount} 条`)
+  if (psWarnings.length) {
+    console.log(`⚠ 套路校验警告 ${psWarnings.length} 条：`)
+    psWarnings.slice(0, 20).forEach((w) => console.log('   ', w))
+  }
   console.log(`出装行：解析 ${resolvedItemRows}，丢弃 ${droppedItemRows}`)
   if (fallbackEn) console.log(`⚠ 有 ${fallbackEn} 条海克斯缺中文名，已回退英文`)
   console.log(`输出：${OUT}`)
