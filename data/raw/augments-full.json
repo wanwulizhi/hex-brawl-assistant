@@ -1,0 +1,3426 @@
+[
+ {
+  "slug": "draw-your-sword",
+  "name": "Draw Your Sword",
+  "cells": [
+   "1",
+   "S",
+   "Draw Your Sword",
+   "100",
+   "58.9%",
+   "9.8 pts",
+   "0.9 pts",
+   "15.2%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "armored-impact",
+  "name": "Armored Impact",
+  "cells": [
+   "2",
+   "S",
+   "Armored Impact",
+   "99",
+   "55.1%",
+   "4.8 pts",
+   "0.8 pts",
+   "39.1%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "bees",
+  "name": "BEES!!!",
+  "cells": [
+   "3",
+   "S",
+   "BEES!!!",
+   "97",
+   "54.1%",
+   "4.1 pts",
+   "0.8 pts",
+   "74.0%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "weapon-of-destiny",
+  "name": "Weapon of Destiny",
+  "cells": [
+   "4",
+   "S",
+   "Weapon of Destiny",
+   "88",
+   "53.3%",
+   "3.4 pts",
+   "0.5 pts",
+   "49.6%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "blue-barrier",
+  "name": "Blue Barrier",
+  "cells": [
+   "5",
+   "S",
+   "Blue Barrier",
+   "82",
+   "54.1%",
+   "3.9 pts",
+   "1.4 pts",
+   "12.3%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "heavy-hitter",
+  "name": "Heavy Hitter",
+  "cells": [
+   "6",
+   "S",
+   "Heavy Hitter",
+   "80",
+   "52.5%",
+   "2.7 pts",
+   "1.0 pts",
+   "27.8%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "ultra-hydra",
+  "name": "Ultra Hydra",
+  "cells": [
+   "7",
+   "S",
+   "Ultra Hydra",
+   "79",
+   "54.6%",
+   "4.5 pts",
+   "1.2 pts",
+   "19.9%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "stackosaurus-rex",
+  "name": "Stackosaurus Rex",
+  "cells": [
+   "8",
+   "S",
+   "Stackosaurus Rex",
+   "78",
+   "53.8%",
+   "4.6 pts",
+   "1.1 pts",
+   "6.9%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "escape-plan",
+  "name": "Escape Plan",
+  "cells": [
+   "9",
+   "S",
+   "Escape Plan",
+   "78",
+   "52.3%",
+   "2.3 pts",
+   "0.5 pts",
+   "34.1%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "infinite-recursion",
+  "name": "Infinite Recursion",
+  "cells": [
+   "10",
+   "S",
+   "Infinite Recursion",
+   "78",
+   "53.9%",
+   "3.9 pts",
+   "1.1 pts",
+   "36.2%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "the-boom-and-the-bass",
+  "name": "The Boom and the Bass",
+  "cells": [
+   "11",
+   "S",
+   "The Boom and the Bass",
+   "77",
+   "52.9%",
+   "2.3 pts",
+   "1.0 pts",
+   "41.7%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "upgrade-immolate",
+  "name": "Upgrade Immolate",
+  "cells": [
+   "12",
+   "S",
+   "Upgrade Immolate",
+   "76",
+   "52.5%",
+   "2.9 pts",
+   "1.1 pts",
+   "14.6%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "steel-your-heart",
+  "name": "Steel Your Heart",
+  "cells": [
+   "13",
+   "S",
+   "Steel Your Heart",
+   "75",
+   "52.2%",
+   "2.4 pts",
+   "1.2 pts",
+   "26.2%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "enchanting-butterflies",
+  "name": "Enchanting Butterflies",
+  "cells": [
+   "14",
+   "S",
+   "Enchanting Butterflies",
+   "75",
+   "55.1%",
+   "5.1 pts",
+   "1.1 pts",
+   "5.7%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "shadow-runner",
+  "name": "Shadow Runner",
+  "cells": [
+   "15",
+   "S",
+   "Shadow Runner",
+   "74",
+   "52.8%",
+   "2.2 pts",
+   "1.0 pts",
+   "23.0%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "blunt-force",
+  "name": "Blunt Force",
+  "cells": [
+   "16",
+   "S",
+   "Blunt Force",
+   "73",
+   "51.2%",
+   "1.6 pts",
+   "0.8 pts",
+   "45.2%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "homeguard",
+  "name": "Homeguard",
+  "cells": [
+   "17",
+   "S",
+   "Homeguard",
+   "73",
+   "51.7%",
+   "1.9 pts",
+   "1.0 pts",
+   "26.6%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "sap-magic",
+  "name": "Sap Magic",
+  "cells": [
+   "18",
+   "S",
+   "Sap Magic",
+   "72",
+   "52.8%",
+   "2.6 pts",
+   "0.9 pts",
+   "16.4%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "tank-engine",
+  "name": "Tank Engine",
+  "cells": [
+   "19",
+   "S",
+   "Tank Engine",
+   "71",
+   "51.6%",
+   "1.8 pts",
+   "1.0 pts",
+   "34.1%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "stay-resolute",
+  "name": "Stay Resolute",
+  "cells": [
+   "20",
+   "S",
+   "Stay Resolute",
+   "71",
+   "52.5%",
+   "3.0 pts",
+   "1.0 pts",
+   "9.0%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "wooglets-witchcap",
+  "name": "Wooglet's Witchcap",
+  "cells": [
+   "21",
+   "A",
+   "Wooglet's Witchcap",
+   "70",
+   "53.0%",
+   "3.0 pts",
+   "1.4 pts",
+   "19.9%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "back-to-basics",
+  "name": "Back To Basics",
+  "cells": [
+   "22",
+   "A",
+   "Back To Basics",
+   "69",
+   "53.2%",
+   "2.5 pts",
+   "1.3 pts",
+   "30.5%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "swift-and-safe",
+  "name": "Swift and Safe",
+  "cells": [
+   "23",
+   "A",
+   "Swift and Safe",
+   "68",
+   "53.0%",
+   "2.2 pts",
+   "1.4 pts",
+   "11.9%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "windspeakers-blessing",
+  "name": "Windspeaker's Blessing",
+  "cells": [
+   "24",
+   "A",
+   "Windspeaker's Blessing",
+   "67",
+   "58.8%",
+   "8.8 pts",
+   "1.1 pts",
+   "2.2%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "fruitify",
+  "name": "Fruitify",
+  "cells": [
+   "25",
+   "A",
+   "Fruitify",
+   "67",
+   "51.8%",
+   "2.2 pts",
+   "1.1 pts",
+   "10.7%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "mad-scientist",
+  "name": "Mad Scientist",
+  "cells": [
+   "26",
+   "A",
+   "Mad Scientist",
+   "66",
+   "51.8%",
+   "1.8 pts",
+   "0.6 pts",
+   "36.4%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "tank-it-or-leave-it",
+  "name": "Tank It Or Leave It",
+  "cells": [
+   "27",
+   "A",
+   "Tank It Or Leave It",
+   "66",
+   "52.0%",
+   "1.6 pts",
+   "1.1 pts",
+   "17.5%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "escapade",
+  "name": "escAPADe",
+  "cells": [
+   "28",
+   "A",
+   "escAPADe",
+   "66",
+   "51.1%",
+   "1.4 pts",
+   "1.2 pts",
+   "20.3%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "hand-of-baron",
+  "name": "Hand of Baron",
+  "cells": [
+   "29",
+   "A",
+   "Hand of Baron",
+   "66",
+   "54.7%",
+   "4.8 pts",
+   "1.0 pts",
+   "4.7%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "goliath",
+  "name": "Goliath",
+  "cells": [
+   "30",
+   "A",
+   "Goliath",
+   "65",
+   "51.8%",
+   "1.8 pts",
+   "1.1 pts",
+   "35.8%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "omni-soul",
+  "name": "Omni Soul",
+  "cells": [
+   "31",
+   "A",
+   "Omni Soul",
+   "65",
+   "52.8%",
+   "2.9 pts",
+   "0.9 pts",
+   "10.1%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "outlaws-grit",
+  "name": "Outlaw's Grit",
+  "cells": [
+   "32",
+   "A",
+   "Outlaw's Grit",
+   "65",
+   "54.1%",
+   "2.6 pts",
+   "1.6 pts",
+   "8.7%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "clown-college",
+  "name": "Clown College",
+  "cells": [
+   "33",
+   "A",
+   "Clown College",
+   "65",
+   "51.8%",
+   "1.9 pts",
+   "1.0 pts",
+   "29.0%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "giant-slayer",
+  "name": "Giant Slayer",
+  "cells": [
+   "34",
+   "A",
+   "Giant Slayer",
+   "64",
+   "51.5%",
+   "1.7 pts",
+   "0.9 pts",
+   "28.9%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "stats-on-stats",
+  "name": "Stats on Stats!",
+  "cells": [
+   "35",
+   "A",
+   "Stats on Stats!",
+   "64",
+   "51.5%",
+   "1.7 pts",
+   "0.8 pts",
+   "15.0%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "circle-of-death",
+  "name": "Circle of Death",
+  "cells": [
+   "36",
+   "A",
+   "Circle of Death",
+   "63",
+   "52.6%",
+   "2.7 pts",
+   "1.5 pts",
+   "8.8%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "from-beginning-to-end",
+  "name": "From Beginning To End",
+  "cells": [
+   "37",
+   "A",
+   "From Beginning To End",
+   "63",
+   "50.6%",
+   "0.9 pts",
+   "1.1 pts",
+   "28.8%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "donation",
+  "name": "Donation",
+  "cells": [
+   "38",
+   "A",
+   "Donation",
+   "63",
+   "51.1%",
+   "1.2 pts",
+   "0.8 pts",
+   "24.0%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "sonata",
+  "name": "Sonata",
+  "cells": [
+   "39",
+   "A",
+   "Sonata",
+   "63",
+   "54.7%",
+   "4.6 pts",
+   "1.1 pts",
+   "3.3%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "bonk",
+  "name": "BONK!",
+  "cells": [
+   "40",
+   "A",
+   "BONK!",
+   "63",
+   "52.6%",
+   "2.3 pts",
+   "1.1 pts",
+   "8.6%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "takeem-down-down-down",
+  "name": "Take'em Down Down Down",
+  "cells": [
+   "41",
+   "A",
+   "Take'em Down Down Down",
+   "63",
+   "51.3%",
+   "0.8 pts",
+   "1.2 pts",
+   "41.0%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "still-here",
+  "name": "Still Here",
+  "cells": [
+   "42",
+   "A",
+   "Still Here",
+   "63",
+   "51.5%",
+   "0.8 pts",
+   "1.0 pts",
+   "37.0%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "infernal-conduit",
+  "name": "Infernal Conduit",
+  "cells": [
+   "43",
+   "A",
+   "Infernal Conduit",
+   "62",
+   "52.0%",
+   "1.5 pts",
+   "1.1 pts",
+   "22.2%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "mind-to-matter",
+  "name": "Mind to Matter",
+  "cells": [
+   "44",
+   "A",
+   "Mind to Matter",
+   "61",
+   "51.4%",
+   "1.0 pts",
+   "1.5 pts",
+   "17.2%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "urfs-champion",
+  "name": "Urf's Champion",
+  "cells": [
+   "45",
+   "A",
+   "Urf's Champion",
+   "61",
+   "51.5%",
+   "1.6 pts",
+   "1.4 pts",
+   "17.5%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "big-brain",
+  "name": "Big Brain",
+  "cells": [
+   "46",
+   "A",
+   "Big Brain",
+   "61",
+   "51.8%",
+   "1.9 pts",
+   "1.5 pts",
+   "8.7%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "dual-wield",
+  "name": "Dual Wield",
+  "cells": [
+   "47",
+   "A",
+   "Dual Wield",
+   "61",
+   "51.2%",
+   "1.3 pts",
+   "1.4 pts",
+   "26.4%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "lich-brain",
+  "name": "Lich Brain",
+  "cells": [
+   "48",
+   "A",
+   "Lich Brain",
+   "61",
+   "51.0%",
+   "0.9 pts",
+   "1.7 pts",
+   "18.7%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "wee-woo-wee-woo",
+  "name": "Wee Woo Wee Woo",
+  "cells": [
+   "49",
+   "A",
+   "Wee Woo Wee Woo",
+   "60",
+   "55.4%",
+   "5.5 pts",
+   "1.2 pts",
+   "2.3%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "growth-spurt",
+  "name": "Growth Spurt",
+  "cells": [
+   "50",
+   "A",
+   "Growth Spurt",
+   "60",
+   "50.9%",
+   "1.4 pts",
+   "1.6 pts",
+   "12.1%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "terraind",
+  "name": "Terrain'd",
+  "cells": [
+   "51",
+   "A",
+   "Terrain'd",
+   "60",
+   "52.7%",
+   "3.4 pts",
+   "1.2 pts",
+   "3.9%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "celestial-body",
+  "name": "Celestial Body",
+  "cells": [
+   "52",
+   "B",
+   "Celestial Body",
+   "59",
+   "50.5%",
+   "0.8 pts",
+   "1.4 pts",
+   "19.5%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "dawnbringers-resolve",
+  "name": "Dawnbringer's Resolve",
+  "cells": [
+   "53",
+   "A",
+   "Dawnbringer's Resolve",
+   "59",
+   "51.0%",
+   "1.4 pts",
+   "1.4 pts",
+   "11.1%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "ocean-soul",
+  "name": "Ocean Soul",
+  "cells": [
+   "54",
+   "A",
+   "Ocean Soul",
+   "59",
+   "50.9%",
+   "0.9 pts",
+   "1.4 pts",
+   "16.5%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "minionmancer",
+  "name": "Minionmancer",
+  "cells": [
+   "55",
+   "B",
+   "Minionmancer",
+   "59",
+   "51.6%",
+   "2.5 pts",
+   "1.1 pts",
+   "5.4%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "dont-blink",
+  "name": "Don't Blink",
+  "cells": [
+   "56",
+   "B",
+   "Don't Blink",
+   "58",
+   "52.1%",
+   "1.8 pts",
+   "1.3 pts",
+   "6.6%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "leg-day",
+  "name": "Leg Day",
+  "cells": [
+   "57",
+   "B",
+   "Leg Day",
+   "58",
+   "50.4%",
+   "0.4 pts",
+   "1.1 pts",
+   "24.6%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "flow-of-spirit",
+  "name": "Flow of Spirit",
+  "cells": [
+   "58",
+   "B",
+   "Flow of Spirit",
+   "58",
+   "51.9%",
+   "0.8 pts",
+   "1.3 pts",
+   "14.6%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "eureka",
+  "name": "Eureka",
+  "cells": [
+   "59",
+   "B",
+   "Eureka",
+   "57",
+   "50.4%",
+   "0.3 pts",
+   "1.1 pts",
+   "43.5%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "spin-to-win",
+  "name": "Spin To Win",
+  "cells": [
+   "60",
+   "B",
+   "Spin To Win",
+   "57",
+   "51.4%",
+   "0.7 pts",
+   "1.1 pts",
+   "15.5%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "overflow",
+  "name": "Overflow",
+  "cells": [
+   "61",
+   "B",
+   "Overflow",
+   "57",
+   "51.6%",
+   "1.2 pts",
+   "1.7 pts",
+   "10.0%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "goldrend",
+  "name": "Goldrend",
+  "cells": [
+   "62",
+   "B",
+   "Goldrend",
+   "57",
+   "51.6%",
+   "1.8 pts",
+   "1.3 pts",
+   "8.0%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "from-downtown",
+  "name": "From Downtown",
+  "cells": [
+   "63",
+   "B",
+   "From Downtown",
+   "57",
+   "50.7%",
+   "0.8 pts",
+   "1.5 pts",
+   "15.8%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "deft",
+  "name": "Deft",
+  "cells": [
+   "64",
+   "B",
+   "Deft",
+   "56",
+   "50.5%",
+   "0.2 pts",
+   "1.1 pts",
+   "27.5%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "stats-on-stats-on-stats",
+  "name": "Stats on Stats on Stats!",
+  "cells": [
+   "65",
+   "B",
+   "Stats on Stats on Stats!",
+   "56",
+   "51.2%",
+   "1.3 pts",
+   "1.3 pts",
+   "9.0%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "zealot",
+  "name": "Zealot",
+  "cells": [
+   "66",
+   "B",
+   "Zealot",
+   "56",
+   "50.8%",
+   "0.2 pts",
+   "1.1 pts",
+   "28.8%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "goredrink",
+  "name": "Goredrink",
+  "cells": [
+   "67",
+   "B",
+   "Goredrink",
+   "55",
+   "50.3%",
+   "0.0 pts",
+   "1.0 pts",
+   "34.9%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "soul-eater",
+  "name": "Soul Eater",
+  "cells": [
+   "68",
+   "B",
+   "Soul Eater",
+   "55",
+   "51.0%",
+   "1.4 pts",
+   "1.7 pts",
+   "7.3%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "courage-of-the-colossus",
+  "name": "Courage of the Colossus",
+  "cells": [
+   "69",
+   "B",
+   "Courage of the Colossus",
+   "54",
+   "50.7%",
+   "1.0 pts",
+   "1.6 pts",
+   "9.8%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "soul-siphon",
+  "name": "Soul Siphon",
+  "cells": [
+   "70",
+   "B",
+   "Soul Siphon",
+   "54",
+   "50.2%",
+   "0.0 pts",
+   "1.3 pts",
+   "30.8%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "with-haste",
+  "name": "With Haste",
+  "cells": [
+   "71",
+   "B",
+   "With Haste",
+   "54",
+   "50.4%",
+   "0.4 pts",
+   "1.6 pts",
+   "15.9%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "slap-around",
+  "name": "Slap Around",
+  "cells": [
+   "72",
+   "B",
+   "Slap Around",
+   "54",
+   "50.3%",
+   "0.4 pts",
+   "1.3 pts",
+   "13.8%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "transmute-gold",
+  "name": "Transmute: Gold",
+  "cells": [
+   "73",
+   "B",
+   "Transmute: Gold",
+   "54",
+   "49.7%",
+   "0.3 pts",
+   "0.6 pts",
+   "45.1%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "final-form",
+  "name": "Final Form",
+  "cells": [
+   "74",
+   "B",
+   "Final Form",
+   "54",
+   "50.2%",
+   "0.3 pts",
+   "1.5 pts",
+   "23.5%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "phenomenal-evil",
+  "name": "Phenomenal Evil",
+  "cells": [
+   "75",
+   "B",
+   "Phenomenal Evil",
+   "54",
+   "50.2%",
+   "0.0 pts",
+   "1.2 pts",
+   "29.6%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "dont-change-the-channel",
+  "name": "Don't Change the Channel",
+  "cells": [
+   "76",
+   "B",
+   "Don't Change the Channel",
+   "54",
+   "51.0%",
+   "1.3 pts",
+   "1.5 pts",
+   "6.3%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "upgrade-deaths-dance",
+  "name": "Upgrade Death's Dance",
+  "cells": [
+   "77",
+   "B",
+   "Upgrade Death's Dance",
+   "54",
+   "51.3%",
+   "0.1 pts",
+   "1.1 pts",
+   "25.7%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "upgrade-stormsurge",
+  "name": "Upgrade Stormsurge",
+  "cells": [
+   "78",
+   "B",
+   "Upgrade Stormsurge",
+   "54",
+   "49.6%",
+   "0.0 pts",
+   "1.3 pts",
+   "25.4%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "erosion",
+  "name": "Erosion",
+  "cells": [
+   "79",
+   "B",
+   "Erosion",
+   "53",
+   "50.0%",
+   "0.1 pts",
+   "1.7 pts",
+   "20.5%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "mystic-punch",
+  "name": "Mystic Punch",
+  "cells": [
+   "80",
+   "B",
+   "Mystic Punch",
+   "53",
+   "51.6%",
+   "0.1 pts",
+   "1.8 pts",
+   "31.5%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "tap-dancer",
+  "name": "Tap Dancer",
+  "cells": [
+   "81",
+   "B",
+   "Tap Dancer",
+   "53",
+   "49.8%",
+   "0.5 pts",
+   "1.7 pts",
+   "12.1%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "transmute-prismatic",
+  "name": "Transmute: Prismatic",
+  "cells": [
+   "82",
+   "B",
+   "Transmute: Prismatic",
+   "53",
+   "49.5%",
+   "0.4 pts",
+   "0.5 pts",
+   "60.4%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "en-passant",
+  "name": "En Passant",
+  "cells": [
+   "83",
+   "B",
+   "En Passant",
+   "53",
+   "51.3%",
+   "0.9 pts",
+   "1.4 pts",
+   "8.2%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "heavy-is-the-crown",
+  "name": "Heavy Is The Crown",
+  "cells": [
+   "84",
+   "B",
+   "Heavy Is The Crown",
+   "53",
+   "49.8%",
+   "0.2 pts",
+   "1.5 pts",
+   "18.3%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "lonely-warrior",
+  "name": "Lonely Warrior",
+  "cells": [
+   "85",
+   "B",
+   "Lonely Warrior",
+   "53",
+   "50.8%",
+   "0.2 pts",
+   "1.2 pts",
+   "17.9%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "protein-shake",
+  "name": "Protein Shake",
+  "cells": [
+   "86",
+   "B",
+   "Protein Shake",
+   "52",
+   "52.3%",
+   "2.2 pts",
+   "1.3 pts",
+   "3.0%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "echo-cast",
+  "name": "Echo Cast",
+  "cells": [
+   "87",
+   "B",
+   "Echo Cast",
+   "52",
+   "51.8%",
+   "0.7 pts",
+   "1.7 pts",
+   "7.9%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "lil-extra-help",
+  "name": "Lil' Extra Help",
+  "cells": [
+   "88",
+   "B",
+   "Lil' Extra Help",
+   "52",
+   "49.5%",
+   "0.2 pts",
+   "1.5 pts",
+   "13.0%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "warlock-juicebox",
+  "name": "Warlock Juicebox",
+  "cells": [
+   "89",
+   "B",
+   "Warlock Juicebox",
+   "52",
+   "50.0%",
+   "0.4 pts",
+   "1.0 pts",
+   "37.2%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "jeweled-bracelet",
+  "name": "Jeweled Bracelet",
+  "cells": [
+   "90",
+   "B",
+   "Jeweled Bracelet",
+   "52",
+   "49.9%",
+   "0.1 pts",
+   "1.2 pts",
+   "22.0%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "scopiest-weapons",
+  "name": "Scopiest Weapons",
+  "cells": [
+   "91",
+   "B",
+   "Scopiest Weapons",
+   "51",
+   "49.5%",
+   "0.2 pts",
+   "1.6 pts",
+   "20.9%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "transmute-chaos",
+  "name": "Transmute: Chaos",
+  "cells": [
+   "92",
+   "B",
+   "Transmute: Chaos",
+   "51",
+   "49.6%",
+   "0.4 pts",
+   "0.6 pts",
+   "31.3%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "cruelty",
+  "name": "Cruelty",
+  "cells": [
+   "93",
+   "B",
+   "Cruelty",
+   "51",
+   "50.0%",
+   "0.4 pts",
+   "1.7 pts",
+   "9.9%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "mosh-monster",
+  "name": "Mosh Monster",
+  "cells": [
+   "94",
+   "B",
+   "Mosh Monster",
+   "51",
+   "50.8%",
+   "2.1 pts",
+   "1.2 pts",
+   "2.8%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "recoil",
+  "name": "Recoil",
+  "cells": [
+   "95",
+   "B",
+   "Recoil",
+   "51",
+   "50.6%",
+   "0.4 pts",
+   "1.3 pts",
+   "9.5%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "veil-of-warding",
+  "name": "Veil of Warding",
+  "cells": [
+   "96",
+   "B",
+   "Veil of Warding",
+   "50",
+   "50.3%",
+   "0.5 pts",
+   "1.3 pts",
+   "8.0%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "first-aid-kit",
+  "name": "First-Aid Kit",
+  "cells": [
+   "97",
+   "B",
+   "First-Aid Kit",
+   "50",
+   "51.3%",
+   "1.2 pts",
+   "1.2 pts",
+   "4.6%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "flashy",
+  "name": "Flashy",
+  "cells": [
+   "98",
+   "B",
+   "Flashy",
+   "50",
+   "49.8%",
+   "0.0 pts",
+   "1.3 pts",
+   "13.7%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "upgrade-zhonyas",
+  "name": "Upgrade Zhonya's",
+  "cells": [
+   "99",
+   "B",
+   "Upgrade Zhonya's",
+   "50",
+   "49.6%",
+   "0.3 pts",
+   "1.5 pts",
+   "21.5%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "ravenous-bind",
+  "name": "Ravenous Bind",
+  "cells": [
+   "100",
+   "B",
+   "Ravenous Bind",
+   "50",
+   "49.3%",
+   "0.2 pts",
+   "1.3 pts",
+   "16.4%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "blade-waltz",
+  "name": "Blade Waltz",
+  "cells": [
+   "101",
+   "B",
+   "Blade Waltz",
+   "49",
+   "50.1%",
+   "0.1 pts",
+   "1.6 pts",
+   "11.9%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "kill-secured",
+  "name": "Kill Secured",
+  "cells": [
+   "102",
+   "B",
+   "Kill Secured",
+   "49",
+   "50.0%",
+   "0.1 pts",
+   "1.3 pts",
+   "9.3%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "tripleshot",
+  "name": "Tripleshot",
+  "cells": [
+   "103",
+   "B",
+   "Tripleshot",
+   "49",
+   "49.9%",
+   "0.4 pts",
+   "1.5 pts",
+   "5.8%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "upgrade-ravenous-hydra",
+  "name": "Upgrade Ravenous Hydra",
+  "cells": [
+   "104",
+   "B",
+   "Upgrade Ravenous Hydra",
+   "49",
+   "50.9%",
+   "0.2 pts",
+   "1.6 pts",
+   "8.8%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "ok-boomerang",
+  "name": "Ok Boomerang",
+  "cells": [
+   "105",
+   "B",
+   "Ok Boomerang",
+   "48",
+   "51.3%",
+   "1.8 pts",
+   "1.2 pts",
+   "2.5%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "rejuvenation",
+  "name": "Rejuvenation",
+  "cells": [
+   "106",
+   "B",
+   "Rejuvenation",
+   "48",
+   "50.7%",
+   "1.7 pts",
+   "1.4 pts",
+   "2.9%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "sonic-boom",
+  "name": "Sonic Boom",
+  "cells": [
+   "107",
+   "B",
+   "Sonic Boom",
+   "48",
+   "51.0%",
+   "1.0 pts",
+   "1.4 pts",
+   "3.9%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "vulnerability",
+  "name": "Vulnerability",
+  "cells": [
+   "108",
+   "B",
+   "Vulnerability",
+   "48",
+   "49.0%",
+   "0.7 pts",
+   "1.1 pts",
+   "26.9%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "all-for-you",
+  "name": "All For You",
+  "cells": [
+   "109",
+   "B",
+   "All For You",
+   "48",
+   "51.5%",
+   "1.5 pts",
+   "1.3 pts",
+   "2.9%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "impassable",
+  "name": "Impassable",
+  "cells": [
+   "110",
+   "B",
+   "Impassable",
+   "48",
+   "50.2%",
+   "0.7 pts",
+   "1.5 pts",
+   "4.8%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "upgrade-collector",
+  "name": "Upgrade Collector",
+  "cells": [
+   "111",
+   "B",
+   "Upgrade Collector",
+   "48",
+   "48.6%",
+   "0.7 pts",
+   "1.3 pts",
+   "30.6%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "ominous-pact",
+  "name": "Ominous Pact",
+  "cells": [
+   "112",
+   "B",
+   "Ominous Pact",
+   "48",
+   "50.0%",
+   "0.2 pts",
+   "1.5 pts",
+   "9.4%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "stuck-in-here-with-me",
+  "name": "Stuck In Here With Me",
+  "cells": [
+   "113",
+   "B",
+   "Stuck In Here With Me",
+   "48",
+   "49.4%",
+   "0.1 pts",
+   "1.6 pts",
+   "6.3%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "double-time",
+  "name": "Double Time",
+  "cells": [
+   "114",
+   "B",
+   "Double Time",
+   "48",
+   "50.1%",
+   "0.2 pts",
+   "1.8 pts",
+   "11.0%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "dive-bomber",
+  "name": "Dive Bomber",
+  "cells": [
+   "115",
+   "B",
+   "Dive Bomber",
+   "47",
+   "48.8%",
+   "0.6 pts",
+   "1.4 pts",
+   "23.0%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "symphony-of-war",
+  "name": "Symphony of War",
+  "cells": [
+   "116",
+   "B",
+   "Symphony of War",
+   "47",
+   "49.7%",
+   "0.7 pts",
+   "1.4 pts",
+   "13.7%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "marksmage",
+  "name": "Marksmage",
+  "cells": [
+   "117",
+   "B",
+   "Marksmage",
+   "47",
+   "50.1%",
+   "0.6 pts",
+   "1.7 pts",
+   "18.6%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "firefox",
+  "name": "FireFox",
+  "cells": [
+   "118",
+   "B",
+   "FireFox",
+   "47",
+   "49.8%",
+   "0.1 pts",
+   "1.4 pts",
+   "9.3%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "biggest-snowball-ever",
+  "name": "Biggest Snowball Ever",
+  "cells": [
+   "119",
+   "B",
+   "Biggest Snowball Ever",
+   "47",
+   "48.9%",
+   "1.0 pts",
+   "1.3 pts",
+   "28.0%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "empyrean-promise",
+  "name": "Empyrean Promise",
+  "cells": [
+   "120",
+   "B",
+   "Empyrean Promise",
+   "47",
+   "51.8%",
+   "1.9 pts",
+   "1.4 pts",
+   "1.6%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "stats",
+  "name": "Stats!",
+  "cells": [
+   "121",
+   "B",
+   "Stats!",
+   "47",
+   "49.7%",
+   "0.0 pts",
+   "1.0 pts",
+   "8.8%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "spell-split",
+  "name": "Spell Split",
+  "cells": [
+   "122",
+   "B",
+   "Spell Split",
+   "47",
+   "48.6%",
+   "0.3 pts",
+   "1.5 pts",
+   "9.0%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "group-hug",
+  "name": "Group Hug",
+  "cells": [
+   "123",
+   "B",
+   "Group Hug",
+   "47",
+   "52.5%",
+   "1.8 pts",
+   "1.3 pts",
+   "1.9%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "earthwake",
+  "name": "Earthwake",
+  "cells": [
+   "124",
+   "B",
+   "Earthwake",
+   "46",
+   "51.0%",
+   "0.2 pts",
+   "1.5 pts",
+   "3.4%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "its-critical",
+  "name": "It's Critical",
+  "cells": [
+   "125",
+   "B",
+   "It's Critical",
+   "46",
+   "49.5%",
+   "0.5 pts",
+   "1.2 pts",
+   "13.3%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "light-em-up",
+  "name": "Light 'Em Up!",
+  "cells": [
+   "126",
+   "B",
+   "Light 'Em Up!",
+   "46",
+   "48.7%",
+   "0.0 pts",
+   "1.4 pts",
+   "7.2%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "critical-healing",
+  "name": "Critical Healing",
+  "cells": [
+   "127",
+   "B",
+   "Critical Healing",
+   "46",
+   "50.7%",
+   "1.2 pts",
+   "1.4 pts",
+   "2.8%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "its-go-time",
+  "name": "It's Go Time",
+  "cells": [
+   "128",
+   "B",
+   "It's Go Time",
+   "46",
+   "49.2%",
+   "0.0 pts",
+   "1.1 pts",
+   "7.6%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "mercys-strike",
+  "name": "Mercy's Strike",
+  "cells": [
+   "129",
+   "B",
+   "Mercy's Strike",
+   "46",
+   "50.7%",
+   "2.0 pts",
+   "1.2 pts",
+   "2.0%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "scopier-weapons",
+  "name": "Scopier Weapons",
+  "cells": [
+   "130",
+   "B",
+   "Scopier Weapons",
+   "45",
+   "48.7%",
+   "1.0 pts",
+   "1.3 pts",
+   "28.0%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "witchful-thinking",
+  "name": "Witchful Thinking",
+  "cells": [
+   "131",
+   "B",
+   "Witchful Thinking",
+   "45",
+   "49.0%",
+   "0.9 pts",
+   "1.3 pts",
+   "27.7%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "magic-missile",
+  "name": "Magic Missile",
+  "cells": [
+   "132",
+   "B",
+   "Magic Missile",
+   "45",
+   "49.0%",
+   "0.9 pts",
+   "1.2 pts",
+   "24.2%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "adapt",
+  "name": "ADAPt",
+  "cells": [
+   "133",
+   "B",
+   "ADAPt",
+   "45",
+   "49.0%",
+   "1.1 pts",
+   "1.3 pts",
+   "38.7%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "get-excited",
+  "name": "Get Excited!",
+  "cells": [
+   "134",
+   "B",
+   "Get Excited!",
+   "45",
+   "49.3%",
+   "0.8 pts",
+   "1.2 pts",
+   "16.8%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "upgrade-sword-of-blossoming-dawn",
+  "name": "Upgrade Sword of Blossoming Dawn",
+  "cells": [
+   "135",
+   "B",
+   "Upgrade Sword of Blossoming Dawn",
+   "45",
+   "50.0%",
+   "1.5 pts",
+   "1.4 pts",
+   "1.4%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "totentanz",
+  "name": "Totentanz",
+  "cells": [
+   "136",
+   "B",
+   "Totentanz",
+   "45",
+   "49.4%",
+   "0.6 pts",
+   "1.3 pts",
+   "6.6%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "dashing",
+  "name": "Dashing",
+  "cells": [
+   "137",
+   "C",
+   "Dashing",
+   "44",
+   "49.3%",
+   "1.3 pts",
+   "1.6 pts",
+   "17.6%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "ethereal-weapon",
+  "name": "Ethereal Weapon",
+  "cells": [
+   "138",
+   "B",
+   "Ethereal Weapon",
+   "44",
+   "49.6%",
+   "1.3 pts",
+   "1.6 pts",
+   "41.0%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "master-of-duality",
+  "name": "Master of Duality",
+  "cells": [
+   "139",
+   "C",
+   "Master of Duality",
+   "44",
+   "49.6%",
+   "1.2 pts",
+   "1.9 pts",
+   "11.5%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "fey-magic",
+  "name": "Fey Magic",
+  "cells": [
+   "140",
+   "C",
+   "Fey Magic",
+   "44",
+   "47.8%",
+   "1.2 pts",
+   "1.9 pts",
+   "13.3%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "twin-fire",
+  "name": "Twin Fire",
+  "cells": [
+   "141",
+   "B",
+   "Twin Fire",
+   "44",
+   "48.8%",
+   "1.1 pts",
+   "1.4 pts",
+   "33.9%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "hextech-soul",
+  "name": "Hextech Soul",
+  "cells": [
+   "142",
+   "C",
+   "Hextech Soul",
+   "44",
+   "48.7%",
+   "0.8 pts",
+   "1.1 pts",
+   "14.8%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "upgrade-sheen",
+  "name": "Upgrade Sheen",
+  "cells": [
+   "143",
+   "C",
+   "Upgrade Sheen",
+   "44",
+   "49.7%",
+   "0.8 pts",
+   "1.7 pts",
+   "14.2%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "empowered-by-the-faithful",
+  "name": "Empowered By The Faithful",
+  "cells": [
+   "144",
+   "B",
+   "Empowered By The Faithful",
+   "44",
+   "49.8%",
+   "0.2 pts",
+   "1.4 pts",
+   "3.3%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "porcupine",
+  "name": "Porcupine",
+  "cells": [
+   "145",
+   "B",
+   "Porcupine",
+   "44",
+   "49.2%",
+   "0.3 pts",
+   "1.5 pts",
+   "7.1%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "infernal-soul",
+  "name": "Infernal Soul",
+  "cells": [
+   "146",
+   "C",
+   "Infernal Soul",
+   "43",
+   "48.8%",
+   "0.9 pts",
+   "1.4 pts",
+   "14.8%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "get-jinxed",
+  "name": "Get Jinxed",
+  "cells": [
+   "147",
+   "C",
+   "Get Jinxed",
+   "43",
+   "48.8%",
+   "1.2 pts",
+   "1.4 pts",
+   "21.0%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "cant-touch-this",
+  "name": "Can't Touch This",
+  "cells": [
+   "148",
+   "C",
+   "Can't Touch This",
+   "42",
+   "48.0%",
+   "1.5 pts",
+   "1.8 pts",
+   "13.3%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "searing-dawn",
+  "name": "Searing Dawn",
+  "cells": [
+   "149",
+   "C",
+   "Searing Dawn",
+   "42",
+   "49.9%",
+   "0.1 pts",
+   "1.3 pts",
+   "3.2%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "critical-rhythm",
+  "name": "Critical Rhythm",
+  "cells": [
+   "150",
+   "C",
+   "Critical Rhythm",
+   "42",
+   "48.6%",
+   "1.2 pts",
+   "1.4 pts",
+   "20.5%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "prom-queen",
+  "name": "Prom Queen",
+  "cells": [
+   "151",
+   "C",
+   "Prom Queen",
+   "42",
+   "48.9%",
+   "0.9 pts",
+   "1.2 pts",
+   "3.1%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "pressure-cooker",
+  "name": "Pressure Cooker",
+  "cells": [
+   "152",
+   "C",
+   "Pressure Cooker",
+   "42",
+   "48.6%",
+   "1.1 pts",
+   "1.7 pts",
+   "12.9%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "shrink-engine",
+  "name": "Shrink Engine",
+  "cells": [
+   "153",
+   "C",
+   "Shrink Engine",
+   "41",
+   "48.2%",
+   "1.7 pts",
+   "1.1 pts",
+   "50.0%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "triggered-inferno",
+  "name": "Triggered Inferno",
+  "cells": [
+   "154",
+   "C",
+   "Triggered Inferno",
+   "41",
+   "48.1%",
+   "1.8 pts",
+   "1.6 pts",
+   "16.2%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "siphon",
+  "name": "Siphon",
+  "cells": [
+   "155",
+   "C",
+   "Siphon",
+   "41",
+   "49.4%",
+   "1.0 pts",
+   "1.1 pts",
+   "15.2%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "big-shot",
+  "name": "Big Shot",
+  "cells": [
+   "156",
+   "C",
+   "Big Shot",
+   "41",
+   "47.6%",
+   "2.0 pts",
+   "1.5 pts",
+   "27.0%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "sound-barrier",
+  "name": "Sound Barrier",
+  "cells": [
+   "157",
+   "C",
+   "Sound Barrier",
+   "41",
+   "52.0%",
+   "1.6 pts",
+   "1.6 pts",
+   "1.3%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "firebrand",
+  "name": "Firebrand",
+  "cells": [
+   "158",
+   "C",
+   "Firebrand",
+   "40",
+   "48.7%",
+   "1.2 pts",
+   "1.3 pts",
+   "10.2%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "upgrade-infinity-edge",
+  "name": "Upgrade Infinity Edge",
+  "cells": [
+   "159",
+   "C",
+   "Upgrade Infinity Edge",
+   "40",
+   "48.2%",
+   "1.7 pts",
+   "1.1 pts",
+   "34.5%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "ultimate-awakening",
+  "name": "Ultimate Awakening",
+  "cells": [
+   "160",
+   "C",
+   "Ultimate Awakening",
+   "40",
+   "48.0%",
+   "2.1 pts",
+   "1.6 pts",
+   "24.6%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "double-tap",
+  "name": "Double Tap",
+  "cells": [
+   "161",
+   "C",
+   "Double Tap",
+   "40",
+   "47.7%",
+   "1.9 pts",
+   "1.5 pts",
+   "14.2%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "arcane-axiom",
+  "name": "Arcane Axiom",
+  "cells": [
+   "162",
+   "C",
+   "Arcane Axiom",
+   "40",
+   "47.9%",
+   "1.5 pts",
+   "1.4 pts",
+   "19.1%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "typhoon",
+  "name": "Typhoon",
+  "cells": [
+   "163",
+   "C",
+   "Typhoon",
+   "39",
+   "48.3%",
+   "1.3 pts",
+   "1.4 pts",
+   "15.1%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "skilled-sniper",
+  "name": "Skilled Sniper",
+  "cells": [
+   "164",
+   "C",
+   "Skilled Sniper",
+   "39",
+   "48.1%",
+   "1.7 pts",
+   "1.3 pts",
+   "23.5%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "juiced",
+  "name": "Juiced",
+  "cells": [
+   "165",
+   "C",
+   "Juiced",
+   "39",
+   "48.7%",
+   "1.3 pts",
+   "1.6 pts",
+   "14.0%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "third-times-the-harm",
+  "name": "Third Times the Harm",
+  "cells": [
+   "166",
+   "C",
+   "Third Times the Harm",
+   "39",
+   "48.4%",
+   "1.9 pts",
+   "1.3 pts",
+   "8.1%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "jeweled-gauntlet",
+  "name": "Jeweled Gauntlet",
+  "cells": [
+   "167",
+   "C",
+   "Jeweled Gauntlet",
+   "38",
+   "47.2%",
+   "2.6 pts",
+   "1.3 pts",
+   "56.0%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "scoped-weapons",
+  "name": "Scoped Weapons",
+  "cells": [
+   "168",
+   "C",
+   "Scoped Weapons",
+   "38",
+   "48.3%",
+   "1.6 pts",
+   "1.2 pts",
+   "20.1%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "mighty-shield",
+  "name": "Mighty Shield",
+  "cells": [
+   "169",
+   "C",
+   "Mighty Shield",
+   "38",
+   "50.1%",
+   "0.4 pts",
+   "1.2 pts",
+   "3.1%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "pinball",
+  "name": "Pinball",
+  "cells": [
+   "170",
+   "C",
+   "Pinball",
+   "38",
+   "48.1%",
+   "1.5 pts",
+   "1.1 pts",
+   "9.8%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "pin-cushion",
+  "name": "Pin Cushion",
+  "cells": [
+   "171",
+   "C",
+   "Pin Cushion",
+   "38",
+   "46.8%",
+   "2.1 pts",
+   "1.5 pts",
+   "5.5%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "apex-inventor",
+  "name": "Apex Inventor",
+  "cells": [
+   "172",
+   "C",
+   "Apex Inventor",
+   "37",
+   "48.3%",
+   "1.6 pts",
+   "1.3 pts",
+   "10.6%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "mountain-soul",
+  "name": "Mountain Soul",
+  "cells": [
+   "173",
+   "C",
+   "Mountain Soul",
+   "37",
+   "48.8%",
+   "0.9 pts",
+   "0.8 pts",
+   "3.9%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "purist-caster",
+  "name": "Purist - Caster",
+  "cells": [
+   "174",
+   "C",
+   "Purist - Caster",
+   "37",
+   "48.2%",
+   "1.8 pts",
+   "1.5 pts",
+   "37.2%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "overloaded",
+  "name": "Overloaded",
+  "cells": [
+   "175",
+   "C",
+   "Overloaded",
+   "37",
+   "47.9%",
+   "2.4 pts",
+   "1.7 pts",
+   "17.0%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "bolstered",
+  "name": "Bolstered",
+  "cells": [
+   "176",
+   "C",
+   "Bolstered",
+   "37",
+   "48.8%",
+   "1.2 pts",
+   "1.3 pts",
+   "7.3%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "ultimate-revolution",
+  "name": "Ultimate Revolution",
+  "cells": [
+   "177",
+   "C",
+   "Ultimate Revolution",
+   "36",
+   "46.4%",
+   "2.8 pts",
+   "1.7 pts",
+   "21.6%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "bread-and-cheese",
+  "name": "Bread and Cheese",
+  "cells": [
+   "178",
+   "C",
+   "Bread and Cheese",
+   "36",
+   "48.2%",
+   "1.9 pts",
+   "1.5 pts",
+   "19.3%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "divine-intervention",
+  "name": "Divine Intervention",
+  "cells": [
+   "179",
+   "C",
+   "Divine Intervention",
+   "36",
+   "48.4%",
+   "1.7 pts",
+   "1.4 pts",
+   "8.2%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "terror",
+  "name": "Terror",
+  "cells": [
+   "180",
+   "C",
+   "Terror",
+   "36",
+   "49.3%",
+   "1.2 pts",
+   "1.2 pts",
+   "1.8%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "ice-cold",
+  "name": "Ice Cold",
+  "cells": [
+   "181",
+   "C",
+   "Ice Cold",
+   "35",
+   "48.3%",
+   "1.9 pts",
+   "1.6 pts",
+   "21.6%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "bread-and-jam",
+  "name": "Bread And Jam",
+  "cells": [
+   "182",
+   "C",
+   "Bread And Jam",
+   "35",
+   "47.6%",
+   "2.0 pts",
+   "1.6 pts",
+   "16.2%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "holy-snowball",
+  "name": "Holy Snowball",
+  "cells": [
+   "183",
+   "C",
+   "Holy Snowball",
+   "35",
+   "47.3%",
+   "2.7 pts",
+   "0.7 pts",
+   "8.7%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "multishot",
+  "name": "Multishot",
+  "cells": [
+   "184",
+   "C",
+   "Multishot",
+   "35",
+   "46.0%",
+   "2.7 pts",
+   "1.6 pts",
+   "7.2%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "quickstep",
+  "name": "Quickstep",
+  "cells": [
+   "185",
+   "C",
+   "Quickstep",
+   "35",
+   "48.4%",
+   "1.7 pts",
+   "1.2 pts",
+   "7.8%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "chain-reaction",
+  "name": "Chain Reaction",
+  "cells": [
+   "186",
+   "C",
+   "Chain Reaction",
+   "35",
+   "47.2%",
+   "1.8 pts",
+   "1.4 pts",
+   "6.5%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "nightstalking",
+  "name": "Nightstalking",
+  "cells": [
+   "187",
+   "C",
+   "Nightstalking",
+   "34",
+   "47.6%",
+   "2.1 pts",
+   "1.3 pts",
+   "15.2%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "flashbang",
+  "name": "Flashbang",
+  "cells": [
+   "188",
+   "C",
+   "Flashbang",
+   "33",
+   "48.8%",
+   "0.7 pts",
+   "0.9 pts",
+   "0.5%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "its-killing-time",
+  "name": "It's Killing Time",
+  "cells": [
+   "189",
+   "C",
+   "It's Killing Time",
+   "33",
+   "46.9%",
+   "2.3 pts",
+   "1.7 pts",
+   "18.7%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "snowday",
+  "name": "Snowday",
+  "cells": [
+   "190",
+   "C",
+   "Snowday",
+   "33",
+   "47.8%",
+   "1.9 pts",
+   "1.2 pts",
+   "11.2%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "pandoras-box",
+  "name": "Pandora's Box",
+  "cells": [
+   "191",
+   "D",
+   "Pandora's Box",
+   "32",
+   "46.5%",
+   "3.4 pts",
+   "0.7 pts",
+   "20.9%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "glass-cannon",
+  "name": "Glass Cannon",
+  "cells": [
+   "192",
+   "C",
+   "Glass Cannon",
+   "32",
+   "45.8%",
+   "3.4 pts",
+   "0.9 pts",
+   "5.1%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "poltergeist",
+  "name": "Poltergeist",
+  "cells": [
+   "193",
+   "C",
+   "Poltergeist",
+   "32",
+   "47.8%",
+   "1.6 pts",
+   "0.8 pts",
+   "2.8%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "flash-2",
+  "name": "Flash 2",
+  "cells": [
+   "194",
+   "C",
+   "Flash 2",
+   "32",
+   "48.6%",
+   "1.0 pts",
+   "0.7 pts",
+   "0.5%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "archmage",
+  "name": "Archmage",
+  "cells": [
+   "195",
+   "D",
+   "Archmage",
+   "32",
+   "46.6%",
+   "3.5 pts",
+   "1.5 pts",
+   "37.2%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "rite-of-ascension",
+  "name": "Rite of Ascension",
+  "cells": [
+   "196",
+   "D",
+   "Rite of Ascension",
+   "31",
+   "46.6%",
+   "3.5 pts",
+   "1.4 pts",
+   "16.1%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "hands-off-the-talent",
+  "name": "Hands off the Talent",
+  "cells": [
+   "197",
+   "D",
+   "Hands off the Talent",
+   "31",
+   "46.4%",
+   "2.2 pts",
+   "1.3 pts",
+   "10.6%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "crimson-cobalt",
+  "name": "CRIMSON COBALT",
+  "cells": [
+   "198",
+   "D",
+   "CRIMSON COBALT",
+   "31",
+   "47.4%",
+   "2.7 pts",
+   "1.2 pts",
+   "24.7%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "bread-and-butter",
+  "name": "Bread And Butter",
+  "cells": [
+   "199",
+   "D",
+   "Bread And Butter",
+   "30",
+   "47.6%",
+   "2.7 pts",
+   "1.5 pts",
+   "25.3%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "titans-resolve",
+  "name": "Titan's Resolve",
+  "cells": [
+   "200",
+   "D",
+   "Titan's Resolve",
+   "29",
+   "46.0%",
+   "4.0 pts",
+   "1.3 pts",
+   "17.0%",
+   "",
+   "Prismatic"
+  ]
+ },
+ {
+  "slug": "recursion",
+  "name": "Recursion",
+  "cells": [
+   "201",
+   "D",
+   "Recursion",
+   "29",
+   "46.9%",
+   "3.1 pts",
+   "1.0 pts",
+   "54.1%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "shrink-ray",
+  "name": "Shrink Ray",
+  "cells": [
+   "202",
+   "D",
+   "Shrink Ray",
+   "29",
+   "46.8%",
+   "2.8 pts",
+   "1.1 pts",
+   "9.0%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "thread-the-needle",
+  "name": "Thread the Needle",
+  "cells": [
+   "203",
+   "D",
+   "Thread the Needle",
+   "29",
+   "46.5%",
+   "2.9 pts",
+   "1.2 pts",
+   "24.5%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "pursuit-of-haste",
+  "name": "Pursuit of Haste",
+  "cells": [
+   "204",
+   "D",
+   "Pursuit of Haste",
+   "29",
+   "47.1%",
+   "2.8 pts",
+   "1.6 pts",
+   "24.6%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "pursuit-of-power",
+  "name": "Pursuit of Power",
+  "cells": [
+   "205",
+   "D",
+   "Pursuit of Power",
+   "29",
+   "46.7%",
+   "2.9 pts",
+   "1.5 pts",
+   "22.5%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "adaptive-ward",
+  "name": "Adaptive Ward",
+  "cells": [
+   "206",
+   "D",
+   "Adaptive Ward",
+   "29",
+   "48.9%",
+   "2.3 pts",
+   "1.2 pts",
+   "5.1%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "trusty-weapon",
+  "name": "Trusty Weapon",
+  "cells": [
+   "207",
+   "D",
+   "Trusty Weapon",
+   "28",
+   "48.5%",
+   "2.5 pts",
+   "1.3 pts",
+   "7.8%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "upgrade-sundered-sky",
+  "name": "Upgrade Sundered Sky",
+  "cells": [
+   "208",
+   "D",
+   "Upgrade Sundered Sky",
+   "28",
+   "47.5%",
+   "2.9 pts",
+   "1.1 pts",
+   "5.6%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "ultimate-unstoppable",
+  "name": "Ultimate Unstoppable",
+  "cells": [
+   "209",
+   "D",
+   "Ultimate Unstoppable",
+   "25",
+   "46.8%",
+   "2.9 pts",
+   "1.6 pts",
+   "17.7%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "gift-of-the-drowned",
+  "name": "Gift of the Drowned",
+  "cells": [
+   "210",
+   "D",
+   "Gift of the Drowned",
+   "25",
+   "46.7%",
+   "2.9 pts",
+   "1.3 pts",
+   "7.8%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "ultimate-recursion",
+  "name": "Ultimate Recursion",
+  "cells": [
+   "211",
+   "D",
+   "Ultimate Recursion",
+   "24",
+   "46.3%",
+   "3.2 pts",
+   "1.3 pts",
+   "45.8%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "spin-me-right-round",
+  "name": "Spin Me Right Round",
+  "cells": [
+   "212",
+   "D",
+   "Spin Me Right Round",
+   "23",
+   "46.1%",
+   "3.6 pts",
+   "0.6 pts",
+   "2.5%",
+   "",
+   "Silver"
+  ]
+ },
+ {
+  "slug": "brass-blast",
+  "name": "Brass Blast",
+  "cells": [
+   "213",
+   "D",
+   "Brass Blast",
+   "23",
+   "46.3%",
+   "3.6 pts",
+   "0.8 pts",
+   "8.8%",
+   "",
+   "Gold"
+  ]
+ },
+ {
+  "slug": "king-me",
+  "name": "King Me",
+  "cells": [
+   "214",
+   "D",
+   "King Me",
+   "0",
+   "37.5%",
+   "12.4 pts",
+   "0.4 pts",
+   "4.8%",
+   "",
+   "Prismatic"
+  ]
+ }
+]
