@@ -8,7 +8,7 @@ const props = defineProps({
   meta: { type: Object, default: null },
 })
 
-const emit = defineEmits(['select'])
+const emit = defineEmits(['select', 'open-rankings', 'open-methodology'])
 
 const keyword = ref('')
 const activeRole = ref('all')
@@ -98,6 +98,23 @@ function fmtRate(v) {
       <p v-if="meta" class="meta-line">
         版本 {{ meta.version }} · {{ meta.championCount }} 位英雄 · 按胜率从夯到拉
       </p>
+
+      <div class="quick-nav">
+        <button class="nav-btn" @click="emit('open-rankings')">
+          <span class="nav-icon">📊</span>
+          <span class="nav-text">
+            <b>全局榜单</b>
+            <i>海克斯 / 出装排行</i>
+          </span>
+        </button>
+        <button class="nav-btn" @click="emit('open-methodology')">
+          <span class="nav-icon">📖</span>
+          <span class="nav-text">
+            <b>数据说明</b>
+            <i>口径与使用边界</i>
+          </span>
+        </button>
+      </div>
     </header>
 
     <div class="search-bar">
@@ -215,6 +232,57 @@ function fmtRate(v) {
   margin: 12px 0 0;
   font-size: 12px;
   color: var(--text-faint);
+}
+
+/* 快捷入口：全局榜单 / 数据说明 */
+.quick-nav {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.nav-btn {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 12px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-align: left;
+  min-width: 0;
+}
+
+.nav-btn:active {
+  background: var(--panel-2);
+}
+
+.nav-icon {
+  font-size: 17px;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+
+.nav-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.nav-text b {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.nav-text i {
+  font-size: 10px;
+  font-style: normal;
+  color: var(--text-faint);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .search-bar {

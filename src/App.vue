@@ -1,8 +1,17 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
-import { loadBuilds, loadChampions, loadItems, loadMeta, loadPlaystyles } from './composables/useData'
+import {
+  loadAugments,
+  loadBuilds,
+  loadChampions,
+  loadItems,
+  loadMeta,
+  loadPlaystyles,
+} from './composables/useData'
 import ChampionList from './views/ChampionList.vue'
 import ChampionDetail from './views/ChampionDetail.vue'
+import RankingsView from './views/RankingsView.vue'
+import MethodologyView from './views/MethodologyView.vue'
 
 const loading = ref(true)
 const error = ref('')
@@ -10,9 +19,12 @@ const champions = ref([])
 const items = ref([])
 const builds = ref([])
 const playstyles = ref([])
+const augments = ref([])
 const meta = ref(null)
 
 const selectedId = ref(null)
+/** 当前视图：list（英雄列表）/ rankings（全局榜单）/ methodology（数据说明） */
+const view = ref('list')
 
 const buildMap = computed(() => {
   const m = new Map()
@@ -46,18 +58,20 @@ const selectedPlaystyles = computed(() =>
 
 async function boot() {
   try {
-    const [metaData, champData, itemData, buildData, psData] = await Promise.all([
+    const [metaData, champData, itemData, buildData, psData, augData] = await Promise.all([
       loadMeta(),
       loadChampions(),
       loadItems(),
       loadBuilds(),
       loadPlaystyles(),
+      loadAugments(),
     ])
     meta.value = metaData
     champions.value = champData
     items.value = itemData
     builds.value = buildData
     playstyles.value = psData
+    augments.value = augData
   } catch (e) {
     error.value = String(e.message || e)
   } finally {
@@ -73,6 +87,12 @@ function openChampion(id) {
 
 function closeChampion() {
   selectedId.value = null
+}
+
+function openView(name) {
+  view.value = name
+  selectedId.value = null
+  window.scrollTo({ top: 0, behavior: 'instant' })
 }
 
 onMounted(boot)
@@ -100,12 +120,30 @@ onMounted(boot)
       @back="closeChampion"
     />
 
+    <RankingsView
+      v-else-if="view === 'rankings'"
+      :augments="augments"
+      :builds="builds"
+      :items="items"
+      :champions="champions"
+      :meta="meta"
+      @back="openView('list')"
+    />
+
+    <MethodologyView
+      v-else-if="view === 'methodology'"
+      :meta="meta"
+      @back="openView('list')"
+    />
+
     <ChampionList
       v-else
       :champions="champions"
       :build-map="buildMap"
       :meta="meta"
       @select="openChampion"
+      @open-rankings="openView('rankings')"
+      @open-methodology="openView('methodology')"
     />
   </div>
 </template>

@@ -56,6 +56,34 @@ export const COMBO_TYPE = {
 }
 
 /**
+ * 样本分档展示配置
+ *
+ * 口径与 data/stats.mjs 保持一致：<1万 低 / 1万–5万 中 / ≥5万 高。
+ * 门槛按本项目数据量级标定（见 data/stats.mjs 注释），不是外部站点的绝对值。
+ * 场次是「英雄场次 × 选取率」的估算值，界面上必须带「≈」或「估算」字样。
+ */
+export const SAMPLE_TIER_META = {
+  low: { label: '样本不足', color: '#f0b429', hint: '仅供参考' },
+  medium: { label: '样本一般', color: '#9aa8bd', hint: '中等' },
+  high: { label: '样本充足', color: '#34d399', hint: '较可信' },
+}
+
+/** 低于该场次不给结论（与 data/stats.mjs 的 MIN_GAMES 对齐） */
+export const MIN_GAMES = 10000
+
+/** 场次格式化：12.3万 / 3456 */
+export function formatGames(games) {
+  if (games == null) return '—'
+  if (games >= 10000) return `${(games / 10000).toFixed(1)}万`
+  return String(games)
+}
+
+/** 取分档元信息 */
+export function sampleTierMeta(key) {
+  return SAMPLE_TIER_META[key] || null
+}
+
+/**
  * 英雄强度分组（按大乱斗胜率，从「夯」到「拉」）
  *
  * 与 scripts/build-data.mjs 共用同一份口径（data/win-groups.mjs）。

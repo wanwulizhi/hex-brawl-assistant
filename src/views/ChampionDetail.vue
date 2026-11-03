@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-import { championIcon, COMBO_TYPE, groupMeta, ROLE_LABEL, RARITY_META } from '../composables/useData'
+import { championIcon, COMBO_TYPE, formatGames, groupMeta, ROLE_LABEL, RARITY_META, sampleTierMeta } from '../composables/useData'
 
 const props = defineProps({
   champion: { type: Object, required: true },
@@ -115,6 +115,10 @@ function winTone(v) {
           <span class="perf-value">{{ champion.pickRate != null ? champion.pickRate.toFixed(1) + '%' : '—' }}</span>
           <span class="perf-label">选取率</span>
         </div>
+        <div class="perf-item">
+          <span class="perf-value">{{ champion.games != null ? formatGames(champion.games) : '—' }}</span>
+          <span class="perf-label">总场次</span>
+        </div>
       </div>
     </section>
 
@@ -181,7 +185,7 @@ function winTone(v) {
     <section class="block">
       <div class="block-head">
         <h2>海克斯强化推荐</h2>
-        <span class="block-note">按稀有度分组 · 组内按 DeepScore</span>
+        <span class="block-note">按稀有度分组 · 组内按 DeepScore · 场次为估算</span>
       </div>
 
       <div v-if="augments.length" class="rarity-groups">
@@ -211,7 +215,16 @@ function winTone(v) {
                   <span class="metric">
                     选取 <b>{{ a.pickRate != null ? a.pickRate + '%' : '—' }}</b>
                   </span>
+                  <span class="metric">
+                    场次
+                    <b :class="a.sampleTier === 'low' ? 'tier-c' : ''">{{
+                      a.games != null ? '≈' + formatGames(a.games) : '—'
+                    }}</b>
+                  </span>
                 </div>
+                <p v-if="a.sampleTier === 'low'" class="aug-warn">
+                  <span class="warn-dot" />样本不足，胜率波动大，仅作参考
+                </p>
               </div>
 
               <div class="aug-score">
@@ -260,6 +273,9 @@ function winTone(v) {
           <div class="build-stats">
             <span class="bs" :class="winTone(b.winRate)">胜率 {{ b.winRate ?? '—' }}%</span>
             <span class="bs dim">选取 {{ b.pickRate ?? '—' }}%</span>
+            <span class="bs" :class="b.sampleTier === 'low' ? 'tier-c' : 'dim'">
+              场次 {{ b.games != null ? '≈' + formatGames(b.games) : '—' }}
+            </span>
           </div>
         </li>
       </ul>
@@ -714,6 +730,25 @@ function winTone(v) {
 .metric b {
   color: var(--text-dim);
   font-weight: 600;
+}
+
+/* 低样本提示：样本不足的条目给出显式警示，避免被当成可靠结论 */
+.aug-warn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 5px 0 0;
+  font-size: 11px;
+  color: #f0b429;
+  opacity: 0.9;
+}
+
+.warn-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #f0b429;
+  flex: 0 0 auto;
 }
 
 .tier-s {
