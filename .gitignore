@@ -19,3 +19,6 @@ data/raw/*.tmp
 
 # 小程序开发者工具本地配置
 miniprogram/project.private.config.json
+
+# 本地预览服务器（仅供本机查看构建产物，环境相关）
+scripts/serve-dist.mjs
