@@ -20,6 +20,7 @@ import { fileURLToPath } from 'node:url'
 import { ZH_BY_EN } from '../data/augment-zh.mjs'
 import { groupOf, WIN_GROUPS } from '../data/win-groups.mjs'
 import { PLAYSTYLES } from '../data/playstyles.mjs'
+import { attachStats, sampleTier, SAMPLE_TIERS, MIN_GAMES } from '../data/stats.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
@@ -77,6 +78,17 @@ function main() {
   const deep = readJson(path.join(RAW, 'deeparam.json'))
   const augmentDict = readJson(path.join(RAW, 'augment-dict.json'))
   const cdragon = readJson(path.join(RAW, 'cdragon-arena.json'))
+
+  // 英雄场次单独抓取（scripts/scrape-games.mjs），按别名合并进 performance。
+  // 该文件可能不完整（断点续跑中），缺失的英雄场次为 null，前端会显示「—」。
+  const gamesFile = path.join(RAW, 'champion-games.json')
+  let championGames = {}
+  if (fs.existsSync(gamesFile)) {
+    championGames = readJson(gamesFile)
+    console.log(`英雄场次：${Object.keys(championGames).length} 条`)
+  } else {
+    console.log('⚠ 未找到 champion-games.json，场次将留空（先跑 npm run data:games）')
+  }
 
   // ---------- 英雄 ----------
   const champions = heroList.map((h) => ({
@@ -154,6 +166,9 @@ function main() {
     const d = deep.champions[champ.alias]
     if (!d) continue
 
+    // 该英雄的总场次：优先用单独抓取的 champion-games.json，回退到详情页 performance
+    const champGames = championGames[champ.alias] ?? d.performance?.games ?? null
+
     // 海克斯：按 DeepScore 排序（站点已排好，这里再兜底一次）
     const augments = d.augments
       .map((a) => {
@@ -161,16 +176,19 @@ function main() {
         const full = augByEn.get(a.name)
         const name = full ? full.name : a.name
         const meta = augMeta.get(name) || {}
-        return {
-          name,
-          nameEn: a.name,
-          slug: a.slug,
-          rarity: full?.rarity || RARITY_ZH[a.rarity] || meta.rarity || '白银',
-          icon: meta.icon || '',
-          winRate: a.winRate,
-          pickRate: a.pickRate,
-          score: a.deepScore,
-        }
+        return attachStats(
+          {
+            name,
+            nameEn: a.name,
+            slug: a.slug,
+            rarity: full?.rarity || RARITY_ZH[a.rarity] || meta.rarity || '白银',
+            icon: meta.icon || '',
+            winRate: a.winRate,
+            pickRate: a.pickRate,
+            score: a.deepScore,
+          },
+          champGames,
+        )
       })
       .sort((x, y) => (y.score ?? 0) - (x.score ?? 0))
 
@@ -189,12 +207,17 @@ function main() {
         continue
       }
       resolvedItemRows++
-      itemBuilds.push({
-        items: ids,
-        winRate: b.winRate,
-        pickRate: b.pickRate,
-        score: b.deepScore,
-      })
+      itemBuilds.push(
+        attachStats(
+          {
+            items: ids,
+            winRate: b.winRate,
+            pickRate: b.pickRate,
+            score: b.deepScore,
+          },
+          champGames,
+        ),
+      )
     }
 
     builds.push({
@@ -214,6 +237,7 @@ function main() {
     champ.winRate = perf?.winRate ?? null
     champ.winRank = perf?.winRank ?? null
     champ.pickRate = perf?.pickRate ?? null
+    champ.games = championGames[champ.alias] ?? perf?.games ?? null
     champ.tier = d?.tier ?? null
     const g = groupOf(champ.winRate)
     champ.group = g.key
@@ -230,9 +254,38 @@ function main() {
   // ---------- 输出 ----------
   fs.mkdirSync(OUT, { recursive: true })
 
-  const augments = [...augMeta.values()].sort(
-    (a, b) => (b.globalWinRate ?? 0) - (a.globalWinRate ?? 0),
-  )
+  // ---------- 全局海克斯榜：补覆盖英雄数与估算总场次 ----------
+  // 一个海克斯的「覆盖面」比它的单点胜率更能说明它是否泛用。
+  // 这里按英雄维度汇总：哪些英雄带它、合计估算多少场。
+  const augCoverage = new Map() // 中文名 -> { heroes:Set, games:number, rates:number[] }
+  for (const b of builds) {
+    for (const a of b.augments) {
+      if (!augCoverage.has(a.name)) {
+        augCoverage.set(a.name, { heroes: new Set(), games: 0, rates: [] })
+      }
+      const c = augCoverage.get(a.name)
+      c.heroes.add(b.championId)
+      if (a.games) c.games += a.games
+      if (a.winRate != null) c.rates.push(a.winRate)
+    }
+  }
+
+  const augments = [...augMeta.values()]
+    .map((a) => {
+      const c = augCoverage.get(a.name)
+      const coverage = c ? c.heroes.size : 0
+      const estGames = c ? c.games : 0
+      return {
+        ...a,
+        coverageHeroCount: coverage,
+        estGames,
+        // 覆盖英雄的平均搭配胜率，与全局胜率互为参照
+        avgHeroWinRate: c && c.rates.length
+          ? Number((c.rates.reduce((s, v) => s + v, 0) / c.rates.length).toFixed(1))
+          : null,
+      }
+    })
+    .sort((a, b) => (b.globalWinRate ?? 0) - (a.globalWinRate ?? 0))
 
   // ---------- 套路数据 ----------
   // 把 playstyles.mjs 的英文别名映射到英雄 ID，并校验海克斯名存在
@@ -281,6 +334,51 @@ function main() {
     augmentLinks: totalAugmentLinks,
     playstyleChampions: playstyles.length,
     playstyleCount: playstyles.reduce((n, p) => n + p.combos.length, 0),
+    // ---------- 统计口径（数据说明页直接读这些字段） ----------
+    methodology: {
+      // 样本量是估算值，不是实测，界面上必须标明
+      gamesEstimated: true,
+      gamesNote: '条目场次 = 英雄总场次 × 该条目选取率，为估算值；站点仅在英雄层面给出场次。',
+      sampleTiers: Object.values(SAMPLE_TIERS).map((t) => ({
+        key: t.key,
+        label: t.label,
+        min: Number.isFinite(t.min) ? t.min : null,
+        max: Number.isFinite(t.max) ? t.max : null,
+        hint: t.hint,
+      })),
+      minGames: MIN_GAMES,
+      confidenceInterval: 'wilson_95',
+      // 排序仍以站点 DeepScore 为主，Wilson 仅用于低样本提示
+      ranking: 'deepscore_primary_wilson_for_low_sample_flag',
+      caveats: [
+        '胜率与场次均来自公开统计站点的抽样，不代表全服全部对局。',
+        '条目场次为「英雄场次 × 选取率」估算所得，非逐条实测，仅供判断可信度。',
+        '胜率反映「一起出现的频率」，不能证明某个选择单独导致胜负。',
+        '分数只在同一版本内可比，跨版本请勿直接对照。',
+        '套路推荐是社区经验整理，不是统计结论。',
+      ],
+    },
+    // 全站样本量汇总，便于首页/说明页展示
+    stats: {
+      championsWithGames: champions.filter((c) => c.games != null).length,
+      totalChampionGames: champions.reduce((s, c) => s + (c.games || 0), 0),
+      augmentLinksHighSample: builds.reduce(
+        (s, b) => s + b.augments.filter((a) => a.sampleTier === 'high').length,
+        0,
+      ),
+      augmentLinksLowSample: builds.reduce(
+        (s, b) => s + b.augments.filter((a) => a.sampleTier === 'low').length,
+        0,
+      ),
+      // 按分档统计条目数，说明页用来展示「多少条结论是有底气的」
+      augmentLinksByTier: Object.keys(SAMPLE_TIERS).reduce((acc, key) => {
+        acc[key] = builds.reduce(
+          (s, b) => s + b.augments.filter((a) => sampleTier(a.games)?.key === key).length,
+          0,
+        )
+        return acc
+      }, {}),
+    },
     groups: WIN_GROUPS.map((g) => {
       const count = champions.filter((c) => c.group === g.key).length
       return { key: g.key, label: g.label, sub: g.sub, min: g.min, count }

@@ -132,8 +132,15 @@ function parseChampionPage(html) {
 }
 
 /**
- * 解析英雄整体表现（Performance 段）
- * 结构：Win rate 51.8% # 26 of 173  Pick rate 5.6% # 81 of 173 ...
+ * 解析英雄整体表现
+ *
+ * 两个位置要分别取：
+ *  1) 页面头部的 cp-strip：胜率 / 选取率 / 场次 / DeepScore 排名
+ *     结构：<b>~5,190,000</b><small>Games</small>
+ *  2) Performance 段：排名信息（#1 of 173）
+ *
+ * 注意：站点只在英雄层面给出场次，海克斯/出装条目本身不带场次。
+ * 条目级样本量由「英雄场次 × 该条目选取率」在 build-data 阶段估算。
  */
 function parsePerformance(html) {
   const i = html.indexOf('id="performance"')
@@ -149,7 +156,20 @@ function parsePerformance(html) {
     winRank: Number(win[2]),
     rankTotal: Number(win[3]),
     pickRate: pick ? parseFloat(pick[1]) : null,
+    games: parseGames(html),
   }
+}
+
+/**
+ * 从页面头部 cp-strip 取英雄总场次
+ * 结构：<div class="cp-cell"><b>~5,190,000</b><small>Games</small></div>
+ * 站点标注为近似值（带 ~），这里解析成整数
+ */
+function parseGames(html) {
+  const m = html.match(/<b>\s*~?\s*([\d,]+)\s*<\/b>\s*<small>\s*Games\s*<\/small>/i)
+  if (!m) return null
+  const n = Number(m[1].replace(/,/g, ''))
+  return Number.isFinite(n) && n > 0 ? n : null
 }
 
 /** 解析英雄列表页的评级徽标（S/A/B/C/D） */

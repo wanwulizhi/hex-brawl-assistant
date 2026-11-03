@@ -9,8 +9,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "data:scrape": "node scripts/scrape-deeparam.mjs",
+    "data:games": "node scripts/scrape-games.mjs",
     "data:build": "node scripts/build-data.mjs",
-    "data": "npm run data:scrape && npm run data:build"
+    "data": "npm run data:scrape && npm run data:games && npm run data:build"
   },
   "dependencies": {
     "vue": "^3.5.13"

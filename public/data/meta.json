@@ -1,6 +1,6 @@
 {
   "version": "26.21",
-  "generatedAt": "2026-11-02T08:59:04.572Z",
+  "generatedAt": "2026-11-03T05:54:29.544Z",
   "championCount": 173,
   "itemCount": 199,
   "augmentCount": 214,
@@ -9,6 +9,54 @@
   "augmentLinks": 1730,
   "playstyleChampions": 21,
   "playstyleCount": 25,
+  "methodology": {
+    "gamesEstimated": true,
+    "gamesNote": "条目场次 = 英雄总场次 × 该条目选取率，为估算值；站点仅在英雄层面给出场次。",
+    "sampleTiers": [
+      {
+        "key": "low",
+        "label": "样本不足",
+        "min": 0,
+        "max": 10000,
+        "hint": "仅供参考"
+      },
+      {
+        "key": "medium",
+        "label": "样本一般",
+        "min": 10000,
+        "max": 50000,
+        "hint": "中等"
+      },
+      {
+        "key": "high",
+        "label": "样本充足",
+        "min": 50000,
+        "max": null,
+        "hint": "较可信"
+      }
+    ],
+    "minGames": 10000,
+    "confidenceInterval": "wilson_95",
+    "ranking": "deepscore_primary_wilson_for_low_sample_flag",
+    "caveats": [
+      "胜率与场次均来自公开统计站点的抽样，不代表全服全部对局。",
+      "条目场次为「英雄场次 × 选取率」估算所得，非逐条实测，仅供判断可信度。",
+      "胜率反映「一起出现的频率」，不能证明某个选择单独导致胜负。",
+      "分数只在同一版本内可比，跨版本请勿直接对照。",
+      "套路推荐是社区经验整理，不是统计结论。"
+    ]
+  },
+  "stats": {
+    "championsWithGames": 141,
+    "totalChampionGames": 356043000,
+    "augmentLinksHighSample": 969,
+    "augmentLinksLowSample": 81,
+    "augmentLinksByTier": {
+      "low": 81,
+      "medium": 360,
+      "high": 969
+    }
+  },
   "groups": [
     {
       "key": "hang",
